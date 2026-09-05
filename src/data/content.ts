@@ -21,7 +21,7 @@ export const hero = {
   description:
     "Αναλαμβάνουμε τη διαχείριση του περιεχομένου σου με δύο τρόπους: είτε μας στέλνεις το υλικό, είτε ερχόμαστε στον χώρο σου και το δημιουργούμε εμείς.",
   primaryCta: "Δες τα πακέτα",
-  secondaryCta: "Μίλα μαζί μας",
+  secondaryCta: "Δες τη διαδικασία",
 };
 
 export const offersIntro = {
@@ -132,9 +132,11 @@ export const comparison = {
 export const finalCta = {
   headline: "Δεν είσαι σίγουρος ποιο χρειάζεσαι;",
   description:
-    "Πες μας λίγα πράγματα για την επιχείρησή σου και θα σου πούμε ποια συνεργασία έχει περισσότερο νόημα.",
-  cta: "Μίλα μαζί μας",
+    "Δες αναλυτικά τι κάνει ο καθένας σε κάθε βήμα και τι παραδίδεται κάθε μήνα.",
+  cta: "Δες τη διαδικασία",
 };
+
+export const processPath = "diadikasia";
 
 export const contactEmail = "hello@hyperlaunch.gr";
 
