@@ -149,7 +149,7 @@ export const finalCta = {
 
 export const processPath = "diadikasia";
 
-export const contactEmail = "hello@hyperlaunch.gr";
+export const contactEmail = "hyperlaunchgr@gmail.com";
 
 export type Review = {
   name: string;
