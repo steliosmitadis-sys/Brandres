@@ -1,4 +1,4 @@
-import { contactEmail, hero } from "../data/content";
+import { hero, processPath } from "../data/content";
 
 export function Hero() {
   return (
@@ -24,10 +24,13 @@ export function Hero() {
             {hero.primaryCta}
           </a>
           <a
-            href={`mailto:${contactEmail}`}
+            href={`${import.meta.env.BASE_URL}${processPath}`}
+            target="_blank"
+            rel="noopener"
             className="inline-flex items-center justify-center border border-line px-7 py-4 text-[15px] font-medium transition-colors hover:border-ink"
           >
             {hero.secondaryCta}
+            <span className="sr-only"> (ανοίγει σε νέο παράθυρο)</span>
           </a>
         </div>
       </div>

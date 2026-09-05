@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { contactEmail } from "../data/content";
+import { contactEmail, processPath } from "../data/content";
 
 export function Navigation() {
   return (
@@ -16,12 +16,14 @@ export function Navigation() {
           >
             Πακέτα
           </Link>
-          <Link
-            to="/diadikasia"
+          <a
+            href={`${import.meta.env.BASE_URL}${processPath}`}
+            target="_blank"
+            rel="noopener"
             className="hidden text-[14px] text-muted transition-colors hover:text-ink sm:block"
           >
             Διαδικασία
-          </Link>
+          </a>
           <a
             href={`mailto:${contactEmail}`}
             className="border border-ink px-4 py-2 text-[14px] font-medium transition-colors hover:bg-ink hover:text-background"

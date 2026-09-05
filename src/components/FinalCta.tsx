@@ -1,4 +1,4 @@
-import { contactEmail, finalCta } from "../data/content";
+import { finalCta, processPath } from "../data/content";
 
 export function FinalCta() {
   return (
@@ -11,10 +11,13 @@ export function FinalCta() {
           {finalCta.description}
         </p>
         <a
-          href={`mailto:${contactEmail}`}
+          href={`${import.meta.env.BASE_URL}${processPath}`}
+          target="_blank"
+          rel="noopener"
           className="mt-10 inline-flex items-center justify-center bg-accent px-7 py-4 text-[15px] font-medium text-background transition-opacity hover:opacity-90"
         >
           {finalCta.cta}
+          <span className="sr-only"> (ανοίγει σε νέο παράθυρο)</span>
         </a>
       </div>
     </section>
