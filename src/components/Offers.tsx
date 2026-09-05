@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { contactEmail, offers, offersIntro, type Offer } from "../data/content";
 
 function Check() {
@@ -90,34 +91,31 @@ function OfferBlock({ offer }: { offer: Offer }) {
       </div>
 
       <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
-      <a
-        href={`mailto:${contactEmail}?subject=${encodeURIComponent(offer.cta)}`}
-        className={`inline-flex items-center justify-center px-7 py-4 text-[15px] font-medium transition-colors ${
-          featured
-            ? "bg-ink text-background hover:bg-accent"
-            : "border border-ink hover:bg-ink hover:text-background"
-        }`}
-      >
-        {offer.cta}
-      </a>
-
         <a
-          href={`${import.meta.env.BASE_URL}diadikasia#${offer.id}`}
-          target="_blank"
-          rel="noopener"
+          href={`mailto:${contactEmail}?subject=${encodeURIComponent(offer.cta)}`}
+          className={`inline-flex items-center justify-center px-7 py-4 text-[15px] font-medium transition-colors ${
+            featured
+              ? "bg-ink text-background hover:bg-accent"
+              : "border border-ink hover:bg-ink hover:text-background"
+          }`}
+        >
+          {offer.cta}
+        </a>
+
+        <Link
+          to={`/diadikasia#${offer.id}`}
           className="inline-flex items-center gap-2 px-1 py-4 text-[15px] font-medium text-muted underline decoration-line underline-offset-4 transition-colors hover:text-ink hover:decoration-accent"
         >
           Δες αναλυτικά τη διαδικασία
           <svg className="h-3.5 w-3.5" viewBox="0 0 14 14" fill="none" aria-hidden>
             <path
-              d="M5 2h7v7M12 2 3 11M9 12H2V5"
+              d="M2 7h10M8 3l4 4-4 4"
               stroke="currentColor"
               strokeWidth="1.4"
               strokeLinecap="square"
             />
           </svg>
-          <span className="sr-only">(ανοίγει σε νέο παράθυρο)</span>
-        </a>
+        </Link>
       </div>
     </article>
   );
