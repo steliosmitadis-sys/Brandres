@@ -1,11 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  asset,
-  contactEmail,
-  offers,
-  offersIntro,
-  type Offer,
-} from "../data/content";
+import { contactEmail, offers, offersIntro, type Offer } from "../data/content";
 
 function Check() {
   return (
@@ -37,17 +31,6 @@ function OfferBlock({ offer }: { offer: Offer }) {
           : "border border-line bg-surface p-6 sm:p-10 lg:p-12"
       }
     >
-      <img
-        src={asset(offer.image)}
-        alt={offer.imageAlt}
-        width={1200}
-        height={800}
-        loading="lazy"
-        className={`mb-8 w-full border border-line object-cover ${
-          featured ? "aspect-[3/2]" : "aspect-[5/2]"
-        }`}
-      />
-
       <p
         className={`text-[12px] font-semibold uppercase tracking-[0.16em] ${
           featured ? "text-accent" : "text-muted"
