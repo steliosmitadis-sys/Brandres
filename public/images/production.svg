@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Γύρισμα στον χώρο της επιχείρησης">
+  <rect width="1200" height="800" fill="#FFFFFF"/>
+  <rect x="0" y="600" width="1200" height="200" fill="#F5F5F8"/>
+  <g stroke="#10101A" stroke-width="5" fill="none">
+    <path d="M240 600V420"/>
+    <path d="M160 600l80-180 80 180"/>
+  </g>
+  <rect x="150" y="300" width="180" height="120" fill="#10101A"/>
+  <path d="M330 330l90-40v140l-90-40z" fill="#10101A"/>
+  <circle cx="215" cy="360" r="34" fill="#FFFFFF"/>
+  <circle cx="215" cy="360" r="16" fill="#4B24E8"/>
+  <rect x="560" y="200" width="440" height="400" fill="#4B24E8"/>
+  <g fill="#FFFFFF" opacity="0.9">
+    <rect x="620" y="480" width="200" height="14"/>
+    <rect x="620" y="514" width="140" height="14"/>
+  </g>
+  <circle cx="780" cy="330" r="70" fill="none" stroke="#FFFFFF" stroke-width="12"/>
+  <g stroke="#D9D8E4" stroke-width="5" fill="none">
+    <path d="M1020 600V260"/>
+    <path d="M960 260h120v60H960z"/>
+  </g>
+</svg>
