@@ -26,6 +26,8 @@ jobs:
       - run: npm ci
       # Pages serves the site from /<repo>/, so the asset base must match.
       - run: npm run build -- --base=/${{ github.event.repository.name }}/
+      # Pages has no SPA rewrite, so 404.html doubles as the fallback entry.
+      - run: cp dist/index.html dist/404.html
       - uses: actions/configure-pages@v5
         with:
           enablement: true

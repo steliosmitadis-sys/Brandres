@@ -4,19 +4,19 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-5 sm:px-8">
-        <a href="#top" className="text-[17px] font-semibold tracking-tight">
+        <a href={import.meta.env.BASE_URL} className="text-[17px] font-semibold tracking-tight">
           Hyperlaunch
         </a>
 
         <nav className="flex items-center gap-6">
           <a
-            href="#offers"
+            href={`${import.meta.env.BASE_URL}#offers`}
             className="hidden text-[14px] text-muted transition-colors hover:text-ink sm:block"
           >
             Πακέτα
           </a>
           <a
-            href="#comparison"
+            href={`${import.meta.env.BASE_URL}#comparison`}
             className="hidden text-[14px] text-muted transition-colors hover:text-ink sm:block"
           >
             Σύγκριση
