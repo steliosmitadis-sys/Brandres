@@ -7,6 +7,8 @@ export type Step = {
 export type Offer = {
   id: string;
   badge: string;
+  image: string;
+  imageAlt: string;
   featured?: boolean;
   title: string;
   description: string;
@@ -22,7 +24,12 @@ export const hero = {
     "Αναλαμβάνουμε τη διαχείριση του περιεχομένου σου με δύο τρόπους: είτε μας στέλνεις το υλικό, είτε ερχόμαστε στον χώρο σου και το δημιουργούμε εμείς.",
   primaryCta: "Δες τα πακέτα",
   secondaryCta: "Δες τη διαδικασία",
+  image: "images/hero.svg",
+  imageAlt: "Πλέγμα δημοσιεύσεων σε Instagram",
 };
+
+/** Τα assets βρίσκονται στο public/, οπότε χρειάζονται το base path του build. */
+export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
 export const offersIntro = {
   headline: "Διάλεξε πώς θέλεις να δουλέψουμε.",
@@ -34,6 +41,8 @@ export const offers: Offer[] = [
   {
     id: "remote",
     badge: "REMOTE",
+    image: "images/remote.svg",
+    imageAlt: "Υλικό που στέλνεται από το κινητό και γίνεται έτοιμο περιεχόμενο",
     title: "Μας στέλνεις το υλικό. Αναλαμβάνουμε τα υπόλοιπα.",
     description:
       "Αν μπορείς να τραβάς φωτογραφίες και βίντεο από την επιχείρησή σου, εμείς τα οργανώνουμε και τα μετατρέπουμε σε περιεχόμενο έτοιμο για δημοσίευση.",
@@ -74,6 +83,8 @@ export const offers: Offer[] = [
   {
     id: "production",
     badge: "CONTENT PRODUCTION",
+    image: "images/production.svg",
+    imageAlt: "Γύρισμα φωτογραφιών και βίντεο στον χώρο της επιχείρησης",
     featured: true,
     title: "Ερχόμαστε στον χώρο σου και δημιουργούμε το περιεχόμενο.",
     description:

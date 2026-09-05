@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Υλικό που στέλνεται από το κινητό">
+  <rect width="1200" height="800" fill="#FFFFFF"/>
+  <rect x="80" y="120" width="300" height="560" fill="#F5F5F8"/>
+  <rect x="80" y="120" width="300" height="560" fill="none" stroke="#D9D8E4" stroke-width="4"/>
+  <rect x="120" y="180" width="220" height="260" fill="#4B24E8"/>
+  <circle cx="230" cy="300" r="46" fill="none" stroke="#FFFFFF" stroke-width="10"/>
+  <rect x="120" y="480" width="180" height="10" fill="#D9D8E4"/>
+  <rect x="120" y="510" width="140" height="10" fill="#D9D8E4"/>
+  <g stroke="#10101A" stroke-width="4" fill="none">
+    <path d="M420 400h300"/>
+    <path d="M700 380l30 20-30 20"/>
+  </g>
+  <g fill="#F5F5F8">
+    <rect x="780" y="120" width="160" height="200"/>
+    <rect x="960" y="120" width="160" height="200"/>
+    <rect x="780" y="340" width="160" height="200"/>
+    <rect x="960" y="340" width="160" height="200"/>
+  </g>
+  <g fill="#D9D8E4">
+    <rect x="800" y="560" width="120" height="10"/>
+    <rect x="980" y="560" width="90" height="10"/>
+    <rect x="800" y="590" width="80" height="10"/>
+    <rect x="980" y="590" width="110" height="10"/>
+  </g>
+  <rect x="780" y="640" width="140" height="40" fill="#10101A"/>
+</svg>
