@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { contactEmail, processPath } from "../data/content";
+import { mailto, processPath } from "../data/content";
 
 export function Navigation() {
   return (
@@ -25,7 +25,7 @@ export function Navigation() {
             Διαδικασία
           </a>
           <a
-            href={`mailto:${contactEmail}`}
+            href={mailto("Επικοινωνία από τη σελίδα")}
             className="border border-ink px-4 py-2 text-[14px] font-medium transition-colors hover:bg-ink hover:text-background"
           >
             Επικοινωνία

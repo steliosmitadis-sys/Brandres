@@ -1,4 +1,4 @@
-import { finalCta, processPath } from "../data/content";
+import { contactEmail, finalCta, mailto, processPath } from "../data/content";
 
 export function FinalCta() {
   return (
@@ -10,15 +10,34 @@ export function FinalCta() {
         <p className="mt-5 max-w-[52ch] text-[17px] leading-relaxed text-background/70">
           {finalCta.description}
         </p>
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
         <a
           href={`${import.meta.env.BASE_URL}${processPath}`}
           target="_blank"
           rel="noopener"
-          className="mt-10 inline-flex items-center justify-center bg-accent px-7 py-4 text-[15px] font-medium text-background transition-opacity hover:opacity-90"
+          className="inline-flex items-center justify-center bg-accent px-7 py-4 text-[15px] font-medium text-background transition-opacity hover:opacity-90"
         >
           {finalCta.cta}
           <span className="sr-only"> (ανοίγει σε νέο παράθυρο)</span>
         </a>
+
+          <a
+            href={mailto("Επικοινωνία από τη σελίδα")}
+            className="inline-flex items-center justify-center border border-background/30 px-7 py-4 text-[15px] font-medium text-background transition-colors hover:border-background"
+          >
+            {finalCta.contactCta}
+          </a>
+        </div>
+
+        <p className="mt-8 text-[15px] text-background/70">
+          Ή στείλε mail στο{" "}
+          <a
+            href={mailto()}
+            className="text-background underline decoration-background/40 underline-offset-4 transition-colors hover:decoration-background"
+          >
+            {contactEmail}
+          </a>
+        </p>
       </div>
     </section>
   );

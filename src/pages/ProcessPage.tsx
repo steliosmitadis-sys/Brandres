@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import {
-  contactEmail,
+  mailto,
   processDetails,
   processIntro,
   type ProcessDetail,
@@ -89,7 +89,7 @@ export function ProcessPage() {
           επιχείρηση έχεις και πόσο χρόνο μπορείς να διαθέσεις.
         </p>
         <a
-          href={`mailto:${contactEmail}`}
+          href={mailto("Επικοινωνία από τη σελίδα διαδικασίας")}
           className="mt-6 inline-flex items-center justify-center bg-ink px-7 py-4 text-[15px] font-medium text-background transition-colors hover:bg-accent"
         >
           Μίλα μαζί μας
