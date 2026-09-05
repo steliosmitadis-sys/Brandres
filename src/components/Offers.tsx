@@ -1,6 +1,6 @@
 import {
   asset,
-  contactEmail,
+  mailto,
   offers,
   offersIntro,
   processPath,
@@ -109,7 +109,7 @@ function OfferBlock({ offer }: { offer: Offer }) {
 
       <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
         <a
-          href={`mailto:${contactEmail}?subject=${encodeURIComponent(offer.cta)}`}
+          href={mailto(offer.cta)}
           className={`inline-flex items-center justify-center px-7 py-4 text-[15px] font-medium transition-colors ${
             featured
               ? "bg-ink text-background hover:bg-accent"

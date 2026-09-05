@@ -143,13 +143,20 @@ export const comparison = {
 export const finalCta = {
   headline: "Δεν είσαι σίγουρος ποιο χρειάζεσαι;",
   description:
-    "Δες αναλυτικά τι κάνει ο καθένας σε κάθε βήμα και τι παραδίδεται κάθε μήνα.",
+    "Δες αναλυτικά τι κάνει ο καθένας σε κάθε βήμα και τι παραδίδεται κάθε μήνα, ή γράψε μας απευθείας.",
   cta: "Δες τη διαδικασία",
+  contactCta: "Μίλα μαζί μας",
 };
 
 export const processPath = "diadikasia";
 
 export const contactEmail = "hyperlaunchgr@gmail.com";
+
+/** Ίδιο mailto παντού, με θέμα ώστε να ξεχωρίζει από πού ήρθε το μήνυμα. */
+export const mailto = (subject?: string) =>
+  subject
+    ? `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}`
+    : `mailto:${contactEmail}`;
 
 export type Review = {
   name: string;
