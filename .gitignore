@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Πακέτα build για ανέβασμα σε hosting
+hyperlaunch-site.zip
