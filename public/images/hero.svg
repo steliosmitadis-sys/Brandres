@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Πλέγμα δημοσιεύσεων">
+  <rect width="800" height="1000" fill="#FFFFFF"/>
+  <g fill="#F5F5F8">
+    <rect x="60" y="60" width="220" height="220"/>
+    <rect x="300" y="60" width="220" height="220"/>
+    <rect x="540" y="60" width="200" height="220"/>
+    <rect x="60" y="300" width="220" height="220"/>
+    <rect x="540" y="300" width="200" height="220"/>
+    <rect x="60" y="540" width="220" height="220"/>
+    <rect x="300" y="540" width="220" height="220"/>
+    <rect x="540" y="540" width="200" height="220"/>
+  </g>
+  <rect x="300" y="300" width="220" height="220" fill="#4B24E8"/>
+  <path d="M383 368v84l72-42z" fill="#FFFFFF"/>
+  <g fill="#D9D8E4">
+    <rect x="80" y="240" width="120" height="8"/>
+    <rect x="320" y="720" width="140" height="8"/>
+    <rect x="560" y="480" width="100" height="8"/>
+    <rect x="80" y="720" width="90" height="8"/>
+  </g>
+  <g fill="#10101A">
+    <rect x="60" y="820" width="300" height="14"/>
+    <rect x="60" y="854" width="200" height="14"/>
+  </g>
+  <rect x="60" y="910" width="160" height="44" fill="#4B24E8"/>
+</svg>
