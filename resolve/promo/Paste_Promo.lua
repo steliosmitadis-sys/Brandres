@@ -22,6 +22,9 @@
 
 -- EDIT THIS to wherever you put the generated file -------------------------
 local COMP_FILE = "C:/promo/stelios_promo.comp"
+-- Remove the previous graph before pasting. Without this, re-running stacks a
+-- second copy on top of the first and the viewer shows both at once.
+local CLEAR_FIRST = true
 ----------------------------------------------------------------------------
 
 local function log(s) print("[promo] " .. tostring(s)) end
@@ -63,6 +66,22 @@ if not ok or type(tbl) ~= "table" then
   log("  reason: " .. tostring(tbl))
   log("Use the clipboard route instead (see the header of this script).")
   return
+end
+
+if CLEAR_FIRST then
+  -- collect first: deleting while iterating the live tool list is unsafe
+  local doomed = {}
+  for _, t in pairs(c:GetToolList(false) or {}) do
+    local at = t:GetAttrs()
+    local id = at and at.TOOLS_RegID
+    if id ~= "MediaOut" and id ~= "MediaIn" then doomed[#doomed + 1] = t end
+  end
+  if #doomed > 0 then
+    c:Lock(); c:StartUndo("Clear comp")
+    for _, t in ipairs(doomed) do pcall(function() t:Delete() end) end
+    c:EndUndo(true); c:Unlock()
+    log("cleared " .. #doomed .. " existing tool(s)")
+  end
 end
 
 local n, last = 0, 0

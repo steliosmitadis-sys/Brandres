@@ -250,6 +250,23 @@ function ops.paste_comp(a)
     if ok and type(r) == "table" then tbl = r end
   end
   assert(tbl, "could not load comp file: " .. tostring(a.path))
+
+  local cleared = 0
+  if a.clear ~= false then
+    local doomed = {}
+    for _, t in pairs(c:GetToolList(false) or {}) do
+      local at = t:GetAttrs()
+      local id = at and at.TOOLS_RegID
+      if id ~= "MediaOut" and id ~= "MediaIn" then doomed[#doomed + 1] = t end
+    end
+    if #doomed > 0 then
+      c:Lock(); c:StartUndo("MCP clear")
+      for _, t in ipairs(doomed) do pcall(function() t:Delete() end) end
+      c:EndUndo(true); c:Unlock()
+      cleared = #doomed
+    end
+  end
+
   c:Lock(); c:StartUndo("MCP paste")
   local ok = c:Paste(tbl)
   c:EndUndo(true); c:Unlock()
@@ -282,7 +299,7 @@ function ops.paste_comp(a)
     end)
   end
   return { pasted = ok and true or false, connected = connected,
-           last_frame = last, path = a.path }
+           cleared = cleared, last_frame = last, path = a.path }
 end
 
 function ops.eval(a)

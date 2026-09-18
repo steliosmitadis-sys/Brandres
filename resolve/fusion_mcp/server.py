@@ -312,18 +312,21 @@ def fusion_comp_info() -> str:
 
 
 @mcp.tool()
-def push_to_resolve(path: str) -> str:
+def push_to_resolve(path: str, clear_first: bool = True) -> str:
     """Paste a generated .comp straight into the open Fusion composition.
 
-    Needs the bridge. If it fails, fall back to send_to_clipboard, which always
-    works.
+    Replaces any previous graph by default, so repeated pushes do not stack
+    copies; pass clear_first=False to keep what is already there. Also connects
+    FINAL_OUT to the MediaOut and sets the comp range. Needs the bridge -- if it
+    fails, fall back to send_to_clipboard, which always works.
     """
     if not os.path.exists(path):
         return json.dumps({"ok": False, "error": "no such file: %s" % path})
     try:
         b, _ = _bridge(timeout=60)
         return json.dumps({"ok": True,
-                           "result": b.call("paste_comp", path=path.replace("\\", "/"))},
+                           "result": b.call("paste_comp", path=path.replace("\\", "/"),
+                                            clear=bool(clear_first))},
                           indent=2)
     except Exception as e:
         return json.dumps({"ok": False, "error": str(e),

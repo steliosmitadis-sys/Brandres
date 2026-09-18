@@ -75,6 +75,7 @@ local function faketool(name, regid)
   local self
   self = setmetatable({
     GetAttrs = function() return attrs end,
+    Delete = function() tools[attrs.TOOLS_Name] = nil; return true end,
     SetAttrs = function(_, t)
       for k, v in pairs(t) do
         if k == "TOOLS_Name" and v ~= attrs.TOOLS_Name then
