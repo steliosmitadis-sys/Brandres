@@ -35,6 +35,27 @@ blocked — only the transport *assumed* `io`.
 channel through `Temp:/` is simpler, has no port/firewall surface, and survives a
 Resolve restart.
 
+## 1b. Get these files onto the Windows machine
+
+They live on the `claude/keen-fermi-mhx6jp` branch of your **Brandres** repo — not in
+the `davinci-resolve-mcp` clone. Put them somewhere with no spaces in the path:
+
+```cmd
+cd C:\
+git clone -b claude/keen-fermi-mhx6jp https://github.com/steliosmitadis-sys/Brandres.git brandres-resolve
+```
+
+That gives you `C:\brandres-resolve\resolve\...`. To pick up later changes:
+
+```cmd
+cd C:\brandres-resolve && git pull
+```
+
+The old `MCP_Bridge.lua` that `install_bridge.py` copied into
+`...\Support\Fusion\Scripts\Edit\` is the **upstream** bridge and still fails at
+line 30 on `os.execute`. It is superseded — delete it so it stops appearing in the
+Scripts menu.
+
 ## 2. Fastest route to the video (recommended — zero API risk)
 
 ```cmd
@@ -107,8 +128,8 @@ python probe\fusion_api_probe.lua   :: actually: run this INSIDE Resolve
 In Resolve, **Workspace ▸ Console ▸ Lua**:
 
 ```lua
-dofile("C:/davinci-resolve-mcp/probe/fusion_api_probe.lua")   -- what your build exposes
-dofile("C:/davinci-resolve-mcp/bridge/resolve_bridge_free.lua")
+dofile("C:/brandres-resolve/resolve/probe/fusion_api_probe.lua")   -- what your build exposes
+dofile("C:/brandres-resolve/resolve/bridge/resolve_bridge_free.lua")
 ```
 
 The bridge prints its `dir =` line. Then on the host:

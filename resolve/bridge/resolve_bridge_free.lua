@@ -23,7 +23,7 @@
 
   RUN
     Workspace > Console -> Lua ->
-      dofile("C:/davinci-resolve-mcp/bridge/resolve_bridge_free.lua")
+      dofile("C:/brandres-resolve/resolve/bridge/resolve_bridge_free.lua")
     or copy into the Scripts folder and use Workspace > Scripts.
 
   STOP

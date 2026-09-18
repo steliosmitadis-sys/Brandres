@@ -5,8 +5,11 @@
   environment. This probe answers, empirically and on YOUR machine, exactly
   which primitives survive — so the bridge can be built on facts, not guesses.
 
+  RUN -- the Fusion console evaluates LUA, not shell commands or bare paths.
+  Typing `probe/fusion_api_probe.lua` gives "'=' expected near '/'". Use dofile:
+
   RUN (either works):
-    Workspace > Console  -> switch to Lua -> dofile("C:/davinci-resolve-mcp/probe/fusion_api_probe.lua")
+    Workspace > Console  -> switch to Lua -> dofile("C:/brandres-resolve/resolve/probe/fusion_api_probe.lua")
     Workspace > Scripts  -> (after copying this file into the Scripts/Utility folder)
 
   It prints a report to the Console AND tries to write it to disk. If the disk
