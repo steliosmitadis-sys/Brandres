@@ -106,7 +106,18 @@ local comp = {
     local n = regid .. tostring(ntools)
     tools[n] = faketool(n, regid); return tools[n]
   end,
-  Paste = function(_, t) return type(t) == "table" end,
+  -- Fusion's Paste really does add the tools, so FindTool() must see them
+  -- afterwards; a stub that just returns true would leave the caller's
+  -- connect-up step silently untested.
+  Paste = function(_, t)
+    if type(t) ~= "table" then return false end
+    for name, tool in pairs(t.Tools or {}) do
+      local regid = (type(tool) == "table" and tool.__ctor) or "Unknown"
+      tools[name] = faketool(name, regid)
+      ntools = ntools + 1
+    end
+    return true
+  end,
 }
 
 local project = {

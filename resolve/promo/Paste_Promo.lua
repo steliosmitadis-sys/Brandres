@@ -65,8 +65,14 @@ if not ok or type(tbl) ~= "table" then
   return
 end
 
-local n = 0
-for _ in pairs(tbl.Tools or {}) do n = n + 1 end
+local n, last = 0, 0
+for _, tool in pairs(tbl.Tools or {}) do
+  n = n + 1
+  -- every generator carries GlobalOut, so the highest one is the last frame
+  local go = type(tool) == "table" and tool.Inputs and tool.Inputs.GlobalOut
+  local v = type(go) == "table" and go.Value or (type(go) == "number" and go)
+  if type(v) == "number" and v > last then last = v end
+end
 log("loaded " .. n .. " tools from " .. COMP_FILE)
 
 c:Lock()
@@ -78,8 +84,40 @@ c:Unlock()
 if pasted == false then
   log("comp:Paste returned false -- nothing was added.")
   log("Use the clipboard route instead (see the header of this script).")
-else
-  log("DONE. Pasted the graph.")
-  log("Next: connect FINAL_OUT to MediaOut1, and set the comp range to 0-719.")
-  log("Then point WORK_01..WORK_05 at your screenshots.")
+  return
 end
+log("pasted the graph.")
+
+-- Wire FINAL_OUT into the comp's MediaOut. Without this the viewer just says
+-- "No frame available for MediaOut1", which looks like the paste failed.
+local function find_mediaout()
+  for _, t in pairs(c:GetToolList(false) or {}) do
+    local a = t:GetAttrs()
+    if a and a.TOOLS_RegID == "MediaOut" then return t end
+  end
+  return c:FindTool("MediaOut1")
+end
+
+local fin, out = c:FindTool("FINAL_OUT"), find_mediaout()
+if fin and out then
+  c:Lock(); c:StartUndo("Connect promo")
+  local ok = pcall(function() out.Input = fin.Output end)
+  c:EndUndo(true); c:Unlock()
+  log(ok and "connected FINAL_OUT -> " .. tostring(out:GetAttrs().TOOLS_Name)
+         or "could not connect automatically -- drag FINAL_OUT into MediaOut1")
+else
+  log("could not find " .. (fin and "a MediaOut node" or "FINAL_OUT")
+      .. " -- connect them by hand")
+end
+
+-- Match the comp range to the graph so the whole piece plays.
+if last > 0 then
+  local ok = pcall(function()
+    c:SetAttrs({ COMPN_GlobalStart = 0, COMPN_GlobalEnd = last,
+                 COMPN_RenderStart = 0, COMPN_RenderEnd = last })
+  end)
+  log(ok and ("range set to 0-" .. last)
+         or ("set the comp range to 0-" .. last .. " by hand"))
+end
+
+log("DONE. Now replace the WORK_01..WORK_05 images with your screenshots.")

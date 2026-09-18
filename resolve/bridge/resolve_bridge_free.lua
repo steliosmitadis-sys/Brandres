@@ -253,7 +253,36 @@ function ops.paste_comp(a)
   c:Lock(); c:StartUndo("MCP paste")
   local ok = c:Paste(tbl)
   c:EndUndo(true); c:Unlock()
-  return { pasted = ok and true or false, path = a.path }
+
+  -- connect FINAL_OUT to the MediaOut, or the viewer shows nothing
+  local connected = false
+  local fin = c:FindTool("FINAL_OUT")
+  local out
+  for _, t in pairs(c:GetToolList(false) or {}) do
+    local at = t:GetAttrs()
+    if at and at.TOOLS_RegID == "MediaOut" then out = t; break end
+  end
+  out = out or c:FindTool("MediaOut1")
+  if fin and out then
+    c:Lock(); c:StartUndo("MCP connect")
+    connected = pcall(function() out.Input = fin.Output end)
+    c:EndUndo(true); c:Unlock()
+  end
+
+  local last = 0
+  for _, tool in pairs(tbl.Tools or {}) do
+    local go = type(tool) == "table" and tool.Inputs and tool.Inputs.GlobalOut
+    local v = type(go) == "table" and go.Value or (type(go) == "number" and go)
+    if type(v) == "number" and v > last then last = v end
+  end
+  if last > 0 then
+    pcall(function()
+      c:SetAttrs({ COMPN_GlobalStart = 0, COMPN_GlobalEnd = last,
+                   COMPN_RenderStart = 0, COMPN_RenderEnd = last })
+    end)
+  end
+  return { pasted = ok and true or false, connected = connected,
+           last_frame = last, path = a.path }
 end
 
 function ops.eval(a)

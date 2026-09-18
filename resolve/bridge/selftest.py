@@ -110,7 +110,9 @@ def main():
     if not failed and args.paste:
         try:
             r = b.call("paste_comp", path=args.paste.replace("\\", "/"))
-            print("  PASS  %-26s pasted=%s" % ("7. paste promo comp", r.get("pasted")))
+            print("  PASS  %-26s pasted=%s connected=%s last_frame=%s"
+                  % ("7. paste promo comp", r.get("pasted"),
+                     r.get("connected"), r.get("last_frame")))
         except Exception as e:
             print("  FAIL  %-26s %s" % ("7. paste promo comp", e))
             failed = True

@@ -12,7 +12,7 @@ Protocol (no file deletion anywhere -- Resolve Free cannot os.remove):
   Resolve -> res.lua  `{ seq = N, ok = true, result = {...} }`
   host polls res.lua until the seq matches
 """
-import os, time, uuid
+import os, random, time, uuid
 
 PROTO = "v3free"
 
@@ -139,7 +139,11 @@ class Bridge:
         self.res = os.path.join(self.dir, "res.lua")
         self.hello = os.path.join(self.dir, "hello.lua")
         self.timeout = timeout
-        self.seq = int(time.time()) % 1000000       # survives host restarts
+        # Seed from the clock so sequence numbers keep rising across host
+        # restarts, but mix in randomness: two clients started in the same
+        # second would otherwise share a sequence and could each accept the
+        # other's replies.
+        self.seq = (int(time.time()) % 1000000) * 1000 + random.randrange(1000)
 
     @staticmethod
     def default_dir():
@@ -165,8 +169,9 @@ class Bridge:
     def call(self, op, **args):
         self.seq += 1
         seq = self.seq
+        rid = uuid.uuid4().hex[:8]
         body = "return { seq = %d, id = %s, op = %s, args = %s }" % (
-            seq, _to_lua(uuid.uuid4().hex[:8]), _to_lua(op), _to_lua(args))
+            seq, _to_lua(rid), _to_lua(op), _to_lua(args))
         os.makedirs(self.dir, exist_ok=True)
         tmp = self.req + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
@@ -178,7 +183,10 @@ class Bridge:
             try:
                 if os.path.exists(self.res):
                     data = lua_loads(open(self.res, encoding="utf-8", errors="replace").read())
-                    if isinstance(data, dict) and data.get("seq") == seq:
+                    # match BOTH seq and id: seq alone can collide with a
+                    # stale bridge still polling the same folder
+                    if (isinstance(data, dict) and data.get("seq") == seq
+                            and data.get("id") == rid):
                         if data.get("ok"):
                             return data.get("result")
                         raise BridgeError("%s: %s" % (op, data.get("error")))
