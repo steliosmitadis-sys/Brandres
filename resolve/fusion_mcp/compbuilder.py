@@ -41,8 +41,20 @@ DEFAULTS = {
     "scenes": [],
 }
 
-# Text+ HorizontalJustificationNew. If generated text lands centred when it
-# should be left-aligned, flip H_LEFT to 1 -- this is the only uncertain enum.
+# Text+ justification.
+#
+# MEASURED on DaVinci Resolve 21.1 Free / Windows 11: with Text+'s default
+# Point layout, HorizontalJustificationNew has NO EFFECT. The same string
+# rendered at values 0, 1, 2, 3 and 4 lands in an identical position, centred
+# on the layout point. There is no "left" value to pick.
+#
+# So text centres on whatever point the Transform places it at, and the
+# library treats "center" as the real layout mode. align="left" is retained
+# only for builds where the enum does work; on Resolve Free it will centre on
+# the margin instead, pushing wide lines off the left edge of frame.
+#
+# True left-alignment would need Text+'s Frame layout rather than Point, whose
+# input names are not confirmed on this build.
 H_LEFT, H_CENTER, V_CENTER = 0, 3, 3
 
 EASE = {

@@ -107,9 +107,14 @@ hidden under the wipe.
 
 If Helvetica Neue isn't installed, pass another font — `Inter` is a good stand-in.
 
-**If text comes out centred when it should be left-aligned**, set `H_LEFT = 1`
-in `fusion_mcp/compbuilder.py` and regenerate. Text+'s justification enum is the
-one value I could not verify without your machine.
+**Layout is centred, and that is deliberate.** Measured on Resolve 21.1 Free:
+with Text+'s default Point layout, `HorizontalJustificationNew` has no effect --
+the same string at values 0, 1, 2, 3 and 4 renders in an identical position,
+centred on the layout point. `promo/align_test.comp` reproduces this in one
+paste. So text centres on wherever the Transform puts it, and the design is
+built around that rather than fighting it. `align="left"` exists for builds
+where the enum works; on Resolve Free it centres on the margin instead and wide
+lines run off frame.
 
 ## Verification
 
