@@ -241,9 +241,11 @@ def send_to_clipboard(path: str) -> str:
     except (OSError, subprocess.SubprocessError) as e:
         return json.dumps({
             "ok": False, "error": "clipboard copy failed: %s" % e,
-            "fallback": ('run this in cmd:  type "%s" | clip' % os.path.normpath(path))
-                        if platform.system() == "Windows" else
-                        ("pipe it manually: cat %s | pbcopy" % path),
+            "fallback": ({
+                "powershell": "Get-Content -Raw '%s' | Set-Clipboard" % os.path.normpath(path),
+                "cmd": 'type "%s" | clip' % os.path.normpath(path),
+            } if platform.system() == "Windows" else
+                {"shell": "cat '%s' | pbcopy" % path}),
         }, indent=2)
     return json.dumps({
         "ok": True, "bytes": len(data), "via": cmd[0],

@@ -15,7 +15,8 @@
 
   If bmd.readfile turns out to be unavailable on your build, fall back to the
   clipboard route, which always works:
-      Windows cmd:  type stelios_promo.comp | clip
+      PowerShell:  Get-Content -Raw C:\promo\promo.comp | Set-Clipboard
+      cmd:         type C:\promo\promo.comp | clip
       then click in the Fusion node editor and press Ctrl+V.
 ]]
 
