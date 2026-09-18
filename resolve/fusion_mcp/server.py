@@ -139,6 +139,7 @@ def make_portfolio_promo(
     work_titles: str = "BRAND IDENTITY|EDITORIAL DESIGN|PACKAGING|DIGITAL PRODUCT|ART DIRECTION",
     work_tags: str = "",
     accent: str = "#124DFF", font: str = "Helvetica Neue", style: str = "Bold",
+    align: str = "center",
     seconds_per_scene: float = 3.0, fps: int = 30,
     width: int = 1080, height: int = 1920,
     filename: str = "promo.comp",
@@ -148,6 +149,10 @@ def make_portfolio_promo(
     Pipe-separate multi-value fields. Produces five Loader nodes named
     WORK_01..WORK_05 that you repoint at real screenshots later. Call
     make_placeholders first so it renders before you have real images.
+
+    align defaults to "center" because Text+ centres on its layout point on
+    every build tested. Use "left" only once make_align_test has confirmed the
+    justification enum for this machine.
     """
     titles = [t.strip() for t in work_titles.split("|") if t.strip()]
     tags = [t.strip() for t in work_tags.split("|")] if work_tags else []
@@ -160,7 +165,7 @@ def make_portfolio_promo(
         hook_lines=tuple(h.strip() for h in hook_lines.split("|") if h.strip()),
         kicker=kicker, subline=subline, works=works,
         assets=os.path.join(workdir(), "assets"),
-        font=font, style=style, palette={"accent": accent},
+        font=font, style=style, palette={"accent": accent}, align=align,
         scene_frames=max(30, int(round(seconds_per_scene * fps))),
         width=width, height=height, fps=fps)
     return json.dumps(_emit(spec, filename), indent=2)
@@ -190,6 +195,18 @@ def make_title_card(lines: str, kicker: str = "", seconds: float = 3.0,
                           palette={"accent": accent},
                           frames=max(30, int(round(seconds * fps))), fps=fps)
     return json.dumps(_emit(spec, filename), indent=2)
+
+
+@mcp.tool()
+def make_align_test(font: str = "Helvetica Neue", fps: int = 30,
+                    filename: str = "align_test.comp") -> str:
+    """Generate a probe card that identifies Text+'s left-justification value.
+
+    Paste it, look at which row starts exactly on the blue guide, and set
+    H_LEFT in fusion_mcp/compbuilder.py to that number to unlock left-aligned
+    layouts.
+    """
+    return json.dumps(_emit(tpl.align_test(font=font, fps=fps), filename), indent=2)
 
 
 @mcp.tool()

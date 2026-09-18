@@ -54,6 +54,8 @@ def main():
     ap.add_argument("--fps", type=int, default=30,
                     help="match your timeline: 30 or 60 (TikTok is often 60)")
     ap.add_argument("--seconds-per-scene", type=float, default=3.0)
+    ap.add_argument("--align", default="center", choices=["center", "left"],
+                    help="left needs the Text+ enum confirmed via align_test")
     ap.add_argument("--skip-resolve", action="store_true",
                     help="do not copy scripts into Resolve's Scripts folder")
     a = ap.parse_args()
@@ -89,6 +91,7 @@ def main():
         import compbuilder as cb, templates as tpl, validate as V
         text, n = cb.render(tpl.portfolio_promo(
             assets=os.path.join(work, "assets"), font=a.font, fps=a.fps,
+            align=a.align,
             scene_frames=int(round(a.seconds_per_scene * a.fps))))
         rep = V.validate(text)
         comp_path = os.path.join(work, "promo.comp").replace("\\", "/")
@@ -99,6 +102,16 @@ def main():
                 a.fps, "clean" if rep["ok"] else rep["errors"][:1]))
     except Exception as e:
         step(False, "generate + validate promo", str(e))
+
+    # 3b -- the justification probe card
+    try:
+        import compbuilder as cb, templates as tpl
+        txt, n = cb.render(tpl.align_test(font=a.font, fps=a.fps))
+        ap_path = os.path.join(work, "align_test.comp").replace("\\", "/")
+        open(ap_path, "w", encoding="utf-8").write(txt)
+        step(True, "alignment probe card", ap_path)
+    except Exception as e:
+        step(False, "alignment probe card", str(e))
 
     # 4 -- in-Resolve scripts
     if not a.skip_resolve:

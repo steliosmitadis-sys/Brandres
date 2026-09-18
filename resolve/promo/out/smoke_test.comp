@@ -17,7 +17,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
@@ -66,7 +66,7 @@
 		S1_E1Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S1_E1CenterY",
 				Source = "Value",

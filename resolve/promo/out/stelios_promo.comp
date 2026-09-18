@@ -17,7 +17,7 @@
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
@@ -66,7 +66,7 @@
 		S1_E1Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S1_E1CenterY",
 				Source = "Value",
@@ -90,7 +90,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 120 } },
@@ -139,7 +139,7 @@
 		S1_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S1_E2CenterY",
 				Source = "Value",
@@ -163,7 +163,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 240 } },
@@ -212,7 +212,7 @@
 		S1_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S1_E3CenterY",
 				Source = "Value",
@@ -236,7 +236,7 @@
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 360 } },
@@ -285,7 +285,7 @@
 		S1_E4Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S1_E4CenterY",
 				Source = "Value",
@@ -324,8 +324,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[24] = { 0.083, RH = { 25.76, 0.263 } },
-				[35] = { 0.263, LH = { 27.3, 0.263 } }
+				[24] = { 0.32, RH = { 25.76, 0.5 } },
+				[35] = { 0.5, LH = { 27.3, 0.5 } }
 			},
 		},
 		S1_E5_MCenter = XYPath {
@@ -373,7 +373,7 @@
 				Green1 = Input { Value = 0.419608, },
 				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 600 } },
@@ -422,7 +422,7 @@
 		S1_E6Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S1_E6CenterY",
 				Source = "Value",
@@ -707,7 +707,7 @@
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 820 } },
@@ -756,7 +756,7 @@
 		S2_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S2_E2CenterY",
 				Source = "Value",
@@ -780,7 +780,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 940 } },
@@ -829,7 +829,7 @@
 		S2_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S2_E3CenterY",
 				Source = "Value",
@@ -868,8 +868,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[109] = { 0.083, RH = { 110.76, 0.223 } },
-				[120] = { 0.223, LH = { 112.3, 0.223 } }
+				[109] = { 0.36, RH = { 110.76, 0.5 } },
+				[120] = { 0.5, LH = { 112.3, 0.5 } }
 			},
 		},
 		S2_E4_MCenter = XYPath {
@@ -917,7 +917,7 @@
 				Green1 = Input { Value = 0.419608, },
 				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 1180 } },
@@ -966,7 +966,7 @@
 		S2_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S2_E5CenterY",
 				Source = "Value",
@@ -1237,7 +1237,7 @@
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 1520 } },
@@ -1286,7 +1286,7 @@
 		S3_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S3_E2CenterY",
 				Source = "Value",
@@ -1310,7 +1310,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 1640 } },
@@ -1359,7 +1359,7 @@
 		S3_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S3_E3CenterY",
 				Source = "Value",
@@ -1398,8 +1398,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[199] = { 0.083, RH = { 200.76, 0.223 } },
-				[210] = { 0.223, LH = { 202.3, 0.223 } }
+				[199] = { 0.36, RH = { 200.76, 0.5 } },
+				[210] = { 0.5, LH = { 202.3, 0.5 } }
 			},
 		},
 		S3_E4_MCenter = XYPath {
@@ -1447,7 +1447,7 @@
 				Green1 = Input { Value = 0.419608, },
 				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 1880 } },
@@ -1496,7 +1496,7 @@
 		S3_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S3_E5CenterY",
 				Source = "Value",
@@ -1767,7 +1767,7 @@
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 2220 } },
@@ -1816,7 +1816,7 @@
 		S4_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S4_E2CenterY",
 				Source = "Value",
@@ -1840,7 +1840,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 2340 } },
@@ -1889,7 +1889,7 @@
 		S4_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S4_E3CenterY",
 				Source = "Value",
@@ -1928,8 +1928,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[289] = { 0.083, RH = { 290.76, 0.223 } },
-				[300] = { 0.223, LH = { 292.3, 0.223 } }
+				[289] = { 0.36, RH = { 290.76, 0.5 } },
+				[300] = { 0.5, LH = { 292.3, 0.5 } }
 			},
 		},
 		S4_E4_MCenter = XYPath {
@@ -1977,7 +1977,7 @@
 				Green1 = Input { Value = 0.419608, },
 				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 2580 } },
@@ -2026,7 +2026,7 @@
 		S4_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S4_E5CenterY",
 				Source = "Value",
@@ -2297,7 +2297,7 @@
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 2920 } },
@@ -2346,7 +2346,7 @@
 		S5_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S5_E2CenterY",
 				Source = "Value",
@@ -2370,7 +2370,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 3040 } },
@@ -2419,7 +2419,7 @@
 		S5_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S5_E3CenterY",
 				Source = "Value",
@@ -2458,8 +2458,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[379] = { 0.083, RH = { 380.76, 0.223 } },
-				[390] = { 0.223, LH = { 382.3, 0.223 } }
+				[379] = { 0.36, RH = { 380.76, 0.5 } },
+				[390] = { 0.5, LH = { 382.3, 0.5 } }
 			},
 		},
 		S5_E4_MCenter = XYPath {
@@ -2507,7 +2507,7 @@
 				Green1 = Input { Value = 0.419608, },
 				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 3280 } },
@@ -2556,7 +2556,7 @@
 		S5_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S5_E5CenterY",
 				Source = "Value",
@@ -2827,7 +2827,7 @@
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 3620 } },
@@ -2876,7 +2876,7 @@
 		S6_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S6_E2CenterY",
 				Source = "Value",
@@ -2900,7 +2900,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 3740 } },
@@ -2949,7 +2949,7 @@
 		S6_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S6_E3CenterY",
 				Source = "Value",
@@ -2988,8 +2988,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[469] = { 0.083, RH = { 470.76, 0.223 } },
-				[480] = { 0.223, LH = { 472.3, 0.223 } }
+				[469] = { 0.36, RH = { 470.76, 0.5 } },
+				[480] = { 0.5, LH = { 472.3, 0.5 } }
 			},
 		},
 		S6_E4_MCenter = XYPath {
@@ -3037,7 +3037,7 @@
 				Green1 = Input { Value = 0.419608, },
 				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 3980 } },
@@ -3086,7 +3086,7 @@
 		S6_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S6_E5CenterY",
 				Source = "Value",
@@ -3227,7 +3227,7 @@
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 4200 } },
@@ -3276,7 +3276,7 @@
 		S7_E1Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S7_E1CenterY",
 				Source = "Value",
@@ -3293,14 +3293,14 @@
 				StyledText = Input { Value = "01", },
 				Font = Input { Value = "Helvetica Neue", },
 				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.0255, },
-				Tracking = Input { Value = 1.2, },
+				Size = Input { Value = 0.0238, },
+				Tracking = Input { Value = 1.6, },
 				LineSpacing = Input { Value = 1, },
 				Red1 = Input { Value = 0.070588, },
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 4320 } },
@@ -3310,8 +3310,8 @@
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.044625, },
-				Center = Input { Value = { 0.5, 0.64 }, },
+				Height = Input { Value = 0.04165, },
+				Center = Input { Value = { 0.5, 0.682 }, },
 				SoftEdge = Input { Value = 0, },
 				CornerRadius = Input { Value = 0, },
 				Invert = Input { Value = 0, },
@@ -3342,14 +3342,14 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[548] = { 0.613225, RH = { 549.6, 0.64 } },
-				[558] = { 0.64, LH = { 551, 0.64 } }
+				[548] = { 0.65701, RH = { 549.6, 0.682 } },
+				[558] = { 0.682, LH = { 551, 0.682 } }
 			},
 		},
 		S7_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S7_E2CenterY",
 				Source = "Value",
@@ -3373,7 +3373,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 4440 } },
@@ -3422,7 +3422,7 @@
 		S7_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.198, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S7_E3CenterY",
 				Source = "Value",
@@ -3439,14 +3439,14 @@
 				StyledText = Input { Value = "02", },
 				Font = Input { Value = "Helvetica Neue", },
 				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.0255, },
-				Tracking = Input { Value = 1.2, },
+				Size = Input { Value = 0.0238, },
+				Tracking = Input { Value = 1.6, },
 				LineSpacing = Input { Value = 1, },
 				Red1 = Input { Value = 0.070588, },
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 4560 } },
@@ -3456,8 +3456,8 @@
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.044625, },
-				Center = Input { Value = { 0.5, 0.515 }, },
+				Height = Input { Value = 0.04165, },
+				Center = Input { Value = { 0.5, 0.557 }, },
 				SoftEdge = Input { Value = 0, },
 				CornerRadius = Input { Value = 0, },
 				Invert = Input { Value = 0, },
@@ -3488,14 +3488,14 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[555] = { 0.488225, RH = { 556.6, 0.515 } },
-				[565] = { 0.515, LH = { 558, 0.515 } }
+				[555] = { 0.53201, RH = { 556.6, 0.557 } },
+				[565] = { 0.557, LH = { 558, 0.557 } }
 			},
 		},
 		S7_E4Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S7_E4CenterY",
 				Source = "Value",
@@ -3519,7 +3519,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 4680 } },
@@ -3568,7 +3568,7 @@
 		S7_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.198, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S7_E5CenterY",
 				Source = "Value",
@@ -3585,14 +3585,14 @@
 				StyledText = Input { Value = "03", },
 				Font = Input { Value = "Helvetica Neue", },
 				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.0255, },
-				Tracking = Input { Value = 1.2, },
+				Size = Input { Value = 0.0238, },
+				Tracking = Input { Value = 1.6, },
 				LineSpacing = Input { Value = 1, },
 				Red1 = Input { Value = 0.070588, },
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 4800 } },
@@ -3602,8 +3602,8 @@
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.044625, },
-				Center = Input { Value = { 0.5, 0.39 }, },
+				Height = Input { Value = 0.04165, },
+				Center = Input { Value = { 0.5, 0.432 }, },
 				SoftEdge = Input { Value = 0, },
 				CornerRadius = Input { Value = 0, },
 				Invert = Input { Value = 0, },
@@ -3634,14 +3634,14 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[562] = { 0.363225, RH = { 563.6, 0.39 } },
-				[572] = { 0.39, LH = { 565, 0.39 } }
+				[562] = { 0.40701, RH = { 563.6, 0.432 } },
+				[572] = { 0.432, LH = { 565, 0.432 } }
 			},
 		},
 		S7_E6Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S7_E6CenterY",
 				Source = "Value",
@@ -3665,7 +3665,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 4920 } },
@@ -3714,7 +3714,7 @@
 		S7_E7Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.198, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S7_E7CenterY",
 				Source = "Value",
@@ -3753,8 +3753,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[576] = { 0.083, RH = { 577.76, 0.293 } },
-				[587] = { 0.293, LH = { 579.3, 0.293 } }
+				[576] = { 0.29, RH = { 577.76, 0.5 } },
+				[587] = { 0.5, LH = { 579.3, 0.5 } }
 			},
 		},
 		S7_E8_MCenter = XYPath {
@@ -3961,7 +3961,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 4900 } },
@@ -4010,7 +4010,7 @@
 		S8_E1Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S8_E1CenterY",
 				Source = "Value",
@@ -4034,7 +4034,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 5020 } },
@@ -4083,7 +4083,7 @@
 		S8_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S8_E2CenterY",
 				Source = "Value",
@@ -4122,8 +4122,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[646] = { 0.083, RH = { 647.76, 0.333 } },
-				[657] = { 0.333, LH = { 649.3, 0.333 } }
+				[646] = { 0.25, RH = { 647.76, 0.5 } },
+				[657] = { 0.5, LH = { 649.3, 0.5 } }
 			},
 		},
 		S8_E3_MCenter = XYPath {
@@ -4171,7 +4171,7 @@
 				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 5260 } },
@@ -4220,7 +4220,7 @@
 		S8_E4Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S8_E4CenterY",
 				Source = "Value",
@@ -4244,7 +4244,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 5380 } },
@@ -4293,7 +4293,7 @@
 		S8_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S8_E5CenterY",
 				Source = "Value",
@@ -4317,7 +4317,7 @@
 				Green1 = Input { Value = 0.94902, },
 				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
+				HorizontalJustificationNew = Input { Value = 3, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 5500 } },
@@ -4366,7 +4366,7 @@
 		S8_E6Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
-				X = Input { Value = 0.083, },
+				X = Input { Value = 0.5, },
 				Y = Input {
 				SourceOp = "S8_E6CenterY",
 				Source = "Value",
@@ -4405,8 +4405,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[670] = { 0.083, RH = { 671.76, 0.393 } },
-				[681] = { 0.393, LH = { 673.3, 0.393 } }
+				[670] = { 0.19, RH = { 671.76, 0.5 } },
+				[681] = { 0.5, LH = { 673.3, 0.5 } }
 			},
 		},
 		S8_E7_MCenter = XYPath {

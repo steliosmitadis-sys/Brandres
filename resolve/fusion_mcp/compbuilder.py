@@ -31,7 +31,7 @@ import copy
 DEFAULTS = {
     "width": 1080, "height": 1920, "fps": 30, "duration": 720,
     "font": "Helvetica Neue", "style": "Bold", "margin": 0.083,
-    "align": "left",
+    "align": "center",
     "palette": {"bg": "#0B0B0C", "fg": "#F2F2F4",
                 "accent": "#124DFF", "muted": "#6B6B73"},
     "type_scale": {"mega": 0.095, "h1": 0.072, "h2": 0.046,
@@ -267,8 +267,12 @@ def el_text(c, cfg, base, el, pos):
     size = el.get("size", "h2")
     size = cfg["type_scale"].get(size, size) if isinstance(size, str) else float(size)
     color = hex_rgb(cfg["palette"].get(el.get("color", "fg"), el.get("color", "fg")))
-    align = H_CENTER if el.get("align", cfg["align"]) == "center" else H_LEFT
-    x = el.get("x", 0.5 if align == H_CENTER else cfg["margin"])
+    just = el.get("justify")
+    if isinstance(just, int):
+        align = just                                   # raw enum, for probing
+    else:
+        align = H_CENTER if el.get("align", cfg["align"]) == "center" else H_LEFT
+    x = el.get("x", 0.5 if align != H_LEFT else cfg["margin"])
     y = float(el["y"])
     ts = cfg["time_scale"]
     at = int(el.get("at", 0))
