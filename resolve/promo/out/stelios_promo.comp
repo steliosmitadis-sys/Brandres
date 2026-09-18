@@ -1,6 +1,6 @@
 {
 	Tools = ordered() {
-		S1_LBL_T = TextPlus {
+		S1_E1_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -13,8 +13,8 @@
 				Size = Input { Value = 0.017, },
 				Tracking = Input { Value = 1.35, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
@@ -22,7 +22,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
 		},
-		S1_LBL_M = RectangleMask {
+		S1_E1_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -36,26 +36,26 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 40 } },
 		},
-		S1_LBL = Transform {
+		S1_E1 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "S1_LBL_T",
+				SourceOp = "S1_E1_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "S1_LBLCenter",
+				SourceOp = "S1_E1Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "S1_LBL_M",
+				SourceOp = "S1_E1_M",
 				Source = "Mask",
 			},
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 0 } },
 		},
-		S1_LBLCenterY = BezierSpline {
+		S1_E1CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -63,17 +63,17 @@
 				[12] = { 0.845, LH = { 5, 0.845 } }
 			},
 		},
-		S1_LBLCenter = XYPath {
+		S1_E1Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "S1_LBLCenterY",
+				SourceOp = "S1_E1CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		S1_A_T = TextPlus {
+		S1_E2_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -86,16 +86,16 @@
 				Size = Input { Value = 0.095, },
 				Tracking = Input { Value = 1, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 120 } },
 		},
-		S1_A_M = RectangleMask {
+		S1_E2_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -109,26 +109,26 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 160 } },
 		},
-		S1_A = Transform {
+		S1_E2 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "S1_A_T",
+				SourceOp = "S1_E2_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "S1_ACenter",
+				SourceOp = "S1_E2Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "S1_A_M",
+				SourceOp = "S1_E2_M",
 				Source = "Mask",
 			},
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 120 } },
 		},
-		S1_ACenterY = BezierSpline {
+		S1_E2CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -136,17 +136,17 @@
 				[16] = { 0.6, LH = { 9, 0.6 } }
 			},
 		},
-		S1_ACenter = XYPath {
+		S1_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "S1_ACenterY",
+				SourceOp = "S1_E2CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		S1_B_T = TextPlus {
+		S1_E3_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -159,16 +159,16 @@
 				Size = Input { Value = 0.095, },
 				Tracking = Input { Value = 1, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 240 } },
 		},
-		S1_B_M = RectangleMask {
+		S1_E3_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -182,26 +182,26 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 280 } },
 		},
-		S1_B = Transform {
+		S1_E3 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "S1_B_T",
+				SourceOp = "S1_E3_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "S1_BCenter",
+				SourceOp = "S1_E3Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "S1_B_M",
+				SourceOp = "S1_E3_M",
 				Source = "Mask",
 			},
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 240 } },
 		},
-		S1_BCenterY = BezierSpline {
+		S1_E3CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -209,17 +209,17 @@
 				[21] = { 0.505, LH = { 14, 0.505 } }
 			},
 		},
-		S1_BCenter = XYPath {
+		S1_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "S1_BCenterY",
+				SourceOp = "S1_E3CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		S1_C_T = TextPlus {
+		S1_E4_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -232,8 +232,8 @@
 				Size = Input { Value = 0.095, },
 				Tracking = Input { Value = 1, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
@@ -241,7 +241,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 360 } },
 		},
-		S1_C_M = RectangleMask {
+		S1_E4_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -255,26 +255,26 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 400 } },
 		},
-		S1_C = Transform {
+		S1_E4 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "S1_C_T",
+				SourceOp = "S1_E4_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "S1_CCenter",
+				SourceOp = "S1_E4Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "S1_C_M",
+				SourceOp = "S1_E4_M",
 				Source = "Mask",
 			},
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 360 } },
 		},
-		S1_CCenterY = BezierSpline {
+		S1_E4CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -282,27 +282,27 @@
 				[26] = { 0.41, LH = { 19, 0.41 } }
 			},
 		},
-		S1_CCenter = XYPath {
+		S1_E4Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "S1_CCenterY",
+				SourceOp = "S1_E4CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		S1_R_M = RectangleMask {
+		S1_E5_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input {
-				SourceOp = "S1_R_MWidth",
+				SourceOp = "S1_E5_MWidth",
 				Source = "Value",
 			},
 				Height = Input { Value = 0.0035, },
 				Center = Input {
-				SourceOp = "S1_R_MCenter",
+				SourceOp = "S1_E5_MCenter",
 				Source = "Value",
 			},
 				SoftEdge = Input { Value = 0, },
@@ -312,7 +312,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 480 } },
 		},
-		S1_R_MWidth = BezierSpline {
+		S1_E5_MWidth = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
@@ -320,7 +320,7 @@
 				[35] = { 0.36, LH = { 27.3, 0.36 } }
 			},
 		},
-		S1_R_MCenterX = BezierSpline {
+		S1_E5_MCenterX = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -328,35 +328,35 @@
 				[35] = { 0.263, LH = { 27.3, 0.263 } }
 			},
 		},
-		S1_R_MCenter = XYPath {
+		S1_E5_MCenter = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input {
-				SourceOp = "S1_R_MCenterX",
+				SourceOp = "S1_E5_MCenterX",
 				Source = "Value",
 			},
 				Y = Input { Value = 0.355, },
 			},
 		},
-		S1_R = Background {
+		S1_E5 = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.071, },
-				TopLeftGreen = Input { Value = 0.302, },
+				TopLeftRed = Input { Value = 0.070588, },
+				TopLeftGreen = Input { Value = 0.301961, },
 				TopLeftBlue = Input { Value = 1, },
 				TopLeftAlpha = Input { Value = 1, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 				EffectMask = Input {
-				SourceOp = "S1_R_M",
+				SourceOp = "S1_E5_M",
 				Source = "Mask",
 			},
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 480 } },
 		},
-		S1_D_T = TextPlus {
+		S1_E6_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -369,16 +369,16 @@
 				Size = Input { Value = 0.024, },
 				Tracking = Input { Value = 1.15, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.42, },
-				Green1 = Input { Value = 0.42, },
-				Blue1 = Input { Value = 0.45, },
+				Red1 = Input { Value = 0.419608, },
+				Green1 = Input { Value = 0.419608, },
+				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 560 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 600 } },
 		},
-		S1_D_M = RectangleMask {
+		S1_E6_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -390,28 +390,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 600 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 640 } },
 		},
-		S1_D = Transform {
+		S1_E6 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "S1_D_T",
+				SourceOp = "S1_E6_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "S1_DCenter",
+				SourceOp = "S1_E6Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "S1_D_M",
+				SourceOp = "S1_E6_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 560 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 600 } },
 		},
-		S1_DCenterY = BezierSpline {
+		S1_E6CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -419,12 +419,12 @@
 				[40] = { 0.31, LH = { 33, 0.31 } }
 			},
 		},
-		S1_DCenter = XYPath {
+		S1_E6Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "S1_DCenterY",
+				SourceOp = "S1_E6CenterY",
 				Source = "Value",
 			},
 			},
@@ -434,9 +434,9 @@
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
 				TopLeftAlpha = Input { Value = 0, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
@@ -450,7 +450,7 @@
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "S1_LBL",
+				SourceOp = "S1_E1",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
@@ -464,7 +464,7 @@
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "S1_A",
+				SourceOp = "S1_E2",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
@@ -478,7 +478,7 @@
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "S1_B",
+				SourceOp = "S1_E3",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
@@ -492,7 +492,7 @@
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "S1_C",
+				SourceOp = "S1_E4",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
@@ -506,7 +506,7 @@
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "S1_R",
+				SourceOp = "S1_E5",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
@@ -520,12 +520,45 @@
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "S1_D",
+				SourceOp = "S1_E6",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 1160, 0 } },
+		},
+		S1_DRIFT = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S1_MRG6",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S1_DRIFTCenter",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 900, 0 } },
+		},
+		S1_DRIFTCenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.493, RH = { 19.58, 0.507 } },
+				[89] = { 0.507, LH = { 32.04, 0.507 } }
+			},
+		},
+		S1_DRIFTCenter = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.5, },
+				Y = Input {
+				SourceOp = "S1_DRIFTCenterY",
+				Source = "Value",
+			},
+			},
 		},
 		WORK_01 = Loader {
 			Clips = {
@@ -555,7 +588,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 700 } },
 		},
-		W01_XF = Transform {
+		WORK_01_XF = Transform {
 			Inputs = {
 				Input = Input {
 				SourceOp = "WORK_01",
@@ -563,32 +596,32 @@
 			},
 				Center = Input { Value = { 0.5, 0.5 }, },
 				Size = Input {
-				SourceOp = "W01_XFSize",
+				SourceOp = "WORK_01_XFSize",
 				Source = "Value",
 			},
 				Angle = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 700 } },
 		},
-		W01_XFSize = BezierSpline {
+		WORK_01_XFSize = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
-				[90] = { 1.12, RH = { 109.36, 1.02 } },
-				[178] = { 1.02, LH = { 121.68, 1.02 } }
+				[92] = { 1.12, RH = { 110.92, 1.02 } },
+				[178] = { 1.02, LH = { 122.96, 1.02 } }
 			},
 		},
-		W01_SLOT = RectangleMask {
+		WORK_01_SLOT = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input { Value = 0.834, },
 				Height = Input {
-				SourceOp = "W01_SLOTHeight",
+				SourceOp = "WORK_01_SLOTHeight",
 				Source = "Value",
 			},
 				Center = Input {
-				SourceOp = "W01_SLOTCenter",
+				SourceOp = "WORK_01_SLOTCenter",
 				Source = "Value",
 			},
 				SoftEdge = Input { Value = 0, },
@@ -598,7 +631,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 760 } },
 		},
-		W01_SLOTHeight = BezierSpline {
+		WORK_01_SLOTHeight = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
@@ -606,7 +639,7 @@
 				[104] = { 0.44, LH = { 95.6, 0.44 } }
 			},
 		},
-		W01_SLOTCenterY = BezierSpline {
+		WORK_01_SLOTCenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -614,50 +647,50 @@
 				[104] = { 0.655, LH = { 95.6, 0.655 } }
 			},
 		},
-		W01_SLOTCenter = XYPath {
+		WORK_01_SLOTCenter = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.5, },
 				Y = Input {
-				SourceOp = "W01_SLOTCenterY",
+				SourceOp = "WORK_01_SLOTCenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W01_FIELD = Background {
+		WORK_01_FIELD = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
 				TopLeftAlpha = Input { Value = 0, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 220, 700 } },
 		},
-		W01_IMG = Merge {
+		WORK_01_MRG = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W01_FIELD",
+				SourceOp = "WORK_01_FIELD",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W01_XF",
+				SourceOp = "WORK_01_XF",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 				Center = Input { Value = { 0.5, 0.655 }, },
 				EffectMask = Input {
-				SourceOp = "W01_SLOT",
+				SourceOp = "WORK_01_SLOT",
 				Source = "Mask",
 			},
 			},
 			ViewInfo = OperatorInfo { Pos = { 330, 700 } },
 		},
-		W01_N_T = TextPlus {
+		S2_E2_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -670,16 +703,16 @@
 				Size = Input { Value = 0.0289, },
 				Tracking = Input { Value = 1.2, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 840 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 820 } },
 		},
-		W01_N_M = RectangleMask {
+		S2_E2_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -691,28 +724,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 880 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 860 } },
 		},
-		W01_N = Transform {
+		S2_E2 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W01_N_T",
+				SourceOp = "S2_E2_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W01_NCenter",
+				SourceOp = "S2_E2Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W01_N_M",
+				SourceOp = "S2_E2_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 840 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 820 } },
 		},
-		W01_NCenterY = BezierSpline {
+		S2_E2CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -720,17 +753,17 @@
 				[110] = { 0.375, LH = { 103, 0.375 } }
 			},
 		},
-		W01_NCenter = XYPath {
+		S2_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W01_NCenterY",
+				SourceOp = "S2_E2CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W01_T_T = TextPlus {
+		S2_E3_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -743,16 +776,16 @@
 				Size = Input { Value = 0.046, },
 				Tracking = Input { Value = 1, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 960 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 940 } },
 		},
-		W01_T_M = RectangleMask {
+		S2_E3_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -764,28 +797,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 1000 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 980 } },
 		},
-		W01_T = Transform {
+		S2_E3 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W01_T_T",
+				SourceOp = "S2_E3_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W01_TCenter",
+				SourceOp = "S2_E3Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W01_T_M",
+				SourceOp = "S2_E3_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 960 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 940 } },
 		},
-		W01_TCenterY = BezierSpline {
+		S2_E3CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -793,27 +826,27 @@
 				[114] = { 0.325, LH = { 107, 0.325 } }
 			},
 		},
-		W01_TCenter = XYPath {
+		S2_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W01_TCenterY",
+				SourceOp = "S2_E3CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W01_R_M = RectangleMask {
+		S2_E4_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input {
-				SourceOp = "W01_R_MWidth",
+				SourceOp = "S2_E4_MWidth",
 				Source = "Value",
 			},
 				Height = Input { Value = 0.0035, },
 				Center = Input {
-				SourceOp = "W01_R_MCenter",
+				SourceOp = "S2_E4_MCenter",
 				Source = "Value",
 			},
 				SoftEdge = Input { Value = 0, },
@@ -821,9 +854,9 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 1080 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 1060 } },
 		},
-		W01_R_MWidth = BezierSpline {
+		S2_E4_MWidth = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
@@ -831,7 +864,7 @@
 				[120] = { 0.28, LH = { 112.3, 0.28 } }
 			},
 		},
-		W01_R_MCenterX = BezierSpline {
+		S2_E4_MCenterX = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -839,35 +872,35 @@
 				[120] = { 0.223, LH = { 112.3, 0.223 } }
 			},
 		},
-		W01_R_MCenter = XYPath {
+		S2_E4_MCenter = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input {
-				SourceOp = "W01_R_MCenterX",
+				SourceOp = "S2_E4_MCenterX",
 				Source = "Value",
 			},
 				Y = Input { Value = 0.285, },
 			},
 		},
-		W01_R = Background {
+		S2_E4 = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.071, },
-				TopLeftGreen = Input { Value = 0.302, },
+				TopLeftRed = Input { Value = 0.070588, },
+				TopLeftGreen = Input { Value = 0.301961, },
 				TopLeftBlue = Input { Value = 1, },
 				TopLeftAlpha = Input { Value = 1, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 				EffectMask = Input {
-				SourceOp = "W01_R_M",
+				SourceOp = "S2_E4_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 1080 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 1060 } },
 		},
-		W01_G_T = TextPlus {
+		S2_E5_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -880,16 +913,16 @@
 				Size = Input { Value = 0.0204, },
 				Tracking = Input { Value = 1.3, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.42, },
-				Green1 = Input { Value = 0.42, },
-				Blue1 = Input { Value = 0.45, },
+				Red1 = Input { Value = 0.419608, },
+				Green1 = Input { Value = 0.419608, },
+				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 1160 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 1180 } },
 		},
-		W01_G_M = RectangleMask {
+		S2_E5_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -901,28 +934,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 1200 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 1220 } },
 		},
-		W01_G = Transform {
+		S2_E5 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W01_G_T",
+				SourceOp = "S2_E5_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W01_GCenter",
+				SourceOp = "S2_E5Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W01_G_M",
+				SourceOp = "S2_E5_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 1160 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 1180 } },
 		},
-		W01_GCenterY = BezierSpline {
+		S2_E5CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -930,99 +963,132 @@
 				[123] = { 0.255, LH = { 116, 0.255 } }
 			},
 		},
-		W01_GCenter = XYPath {
+		S2_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W01_GCenterY",
+				SourceOp = "S2_E5CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W01_BASE = Background {
+		S2_BASE = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
 				TopLeftAlpha = Input { Value = 0, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 500, 700 } },
 		},
-		W01_MRG1 = Merge {
+		S2_MRG1 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W01_BASE",
+				SourceOp = "S2_BASE",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W01_IMG",
+				SourceOp = "WORK_01_MRG",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 610, 700 } },
 		},
-		W01_MRG2 = Merge {
+		S2_MRG2 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W01_MRG1",
+				SourceOp = "S2_MRG1",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W01_N",
+				SourceOp = "S2_E2",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 720, 700 } },
 		},
-		W01_MRG3 = Merge {
+		S2_MRG3 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W01_MRG2",
+				SourceOp = "S2_MRG2",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W01_T",
+				SourceOp = "S2_E3",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 830, 700 } },
 		},
-		W01_MRG4 = Merge {
+		S2_MRG4 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W01_MRG3",
+				SourceOp = "S2_MRG3",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W01_R",
+				SourceOp = "S2_E4",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 940, 700 } },
 		},
-		W01_MRG5 = Merge {
+		S2_MRG5 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W01_MRG4",
+				SourceOp = "S2_MRG4",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W01_G",
+				SourceOp = "S2_E5",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 1050, 700 } },
+		},
+		S2_DRIFT = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S2_MRG5",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S2_DRIFTCenter",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 900, 700 } },
+		},
+		S2_DRIFTCenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[90] = { 0.493, RH = { 109.58, 0.507 } },
+				[179] = { 0.507, LH = { 122.04, 0.507 } }
+			},
+		},
+		S2_DRIFTCenter = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.5, },
+				Y = Input {
+				SourceOp = "S2_DRIFTCenterY",
+				Source = "Value",
+			},
+			},
 		},
 		WORK_02 = Loader {
 			Clips = {
@@ -1052,7 +1118,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 1400 } },
 		},
-		W02_XF = Transform {
+		WORK_02_XF = Transform {
 			Inputs = {
 				Input = Input {
 				SourceOp = "WORK_02",
@@ -1060,32 +1126,32 @@
 			},
 				Center = Input { Value = { 0.5, 0.5 }, },
 				Size = Input {
-				SourceOp = "W02_XFSize",
+				SourceOp = "WORK_02_XFSize",
 				Source = "Value",
 			},
 				Angle = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 1400 } },
 		},
-		W02_XFSize = BezierSpline {
+		WORK_02_XFSize = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
-				[180] = { 1.12, RH = { 199.36, 1.02 } },
-				[268] = { 1.02, LH = { 211.68, 1.02 } }
+				[182] = { 1.12, RH = { 200.92, 1.02 } },
+				[268] = { 1.02, LH = { 212.96, 1.02 } }
 			},
 		},
-		W02_SLOT = RectangleMask {
+		WORK_02_SLOT = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input { Value = 0.834, },
 				Height = Input {
-				SourceOp = "W02_SLOTHeight",
+				SourceOp = "WORK_02_SLOTHeight",
 				Source = "Value",
 			},
 				Center = Input {
-				SourceOp = "W02_SLOTCenter",
+				SourceOp = "WORK_02_SLOTCenter",
 				Source = "Value",
 			},
 				SoftEdge = Input { Value = 0, },
@@ -1095,7 +1161,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 1460 } },
 		},
-		W02_SLOTHeight = BezierSpline {
+		WORK_02_SLOTHeight = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
@@ -1103,7 +1169,7 @@
 				[194] = { 0.44, LH = { 185.6, 0.44 } }
 			},
 		},
-		W02_SLOTCenterY = BezierSpline {
+		WORK_02_SLOTCenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -1111,50 +1177,50 @@
 				[194] = { 0.345, LH = { 185.6, 0.345 } }
 			},
 		},
-		W02_SLOTCenter = XYPath {
+		WORK_02_SLOTCenter = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.5, },
 				Y = Input {
-				SourceOp = "W02_SLOTCenterY",
+				SourceOp = "WORK_02_SLOTCenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W02_FIELD = Background {
+		WORK_02_FIELD = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
 				TopLeftAlpha = Input { Value = 0, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 220, 1400 } },
 		},
-		W02_IMG = Merge {
+		WORK_02_MRG = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W02_FIELD",
+				SourceOp = "WORK_02_FIELD",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W02_XF",
+				SourceOp = "WORK_02_XF",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 				Center = Input { Value = { 0.5, 0.345 }, },
 				EffectMask = Input {
-				SourceOp = "W02_SLOT",
+				SourceOp = "WORK_02_SLOT",
 				Source = "Mask",
 			},
 			},
 			ViewInfo = OperatorInfo { Pos = { 330, 1400 } },
 		},
-		W02_N_T = TextPlus {
+		S3_E2_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -1167,16 +1233,16 @@
 				Size = Input { Value = 0.0289, },
 				Tracking = Input { Value = 1.2, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 1540 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 1520 } },
 		},
-		W02_N_M = RectangleMask {
+		S3_E2_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -1188,28 +1254,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 1580 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 1560 } },
 		},
-		W02_N = Transform {
+		S3_E2 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W02_N_T",
+				SourceOp = "S3_E2_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W02_NCenter",
+				SourceOp = "S3_E2Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W02_N_M",
+				SourceOp = "S3_E2_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 1540 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 1520 } },
 		},
-		W02_NCenterY = BezierSpline {
+		S3_E2CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -1217,17 +1283,17 @@
 				[200] = { 0.72, LH = { 193, 0.72 } }
 			},
 		},
-		W02_NCenter = XYPath {
+		S3_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W02_NCenterY",
+				SourceOp = "S3_E2CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W02_T_T = TextPlus {
+		S3_E3_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -1240,16 +1306,16 @@
 				Size = Input { Value = 0.046, },
 				Tracking = Input { Value = 1, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 1660 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 1640 } },
 		},
-		W02_T_M = RectangleMask {
+		S3_E3_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -1261,28 +1327,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 1700 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 1680 } },
 		},
-		W02_T = Transform {
+		S3_E3 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W02_T_T",
+				SourceOp = "S3_E3_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W02_TCenter",
+				SourceOp = "S3_E3Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W02_T_M",
+				SourceOp = "S3_E3_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 1660 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 1640 } },
 		},
-		W02_TCenterY = BezierSpline {
+		S3_E3CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -1290,27 +1356,27 @@
 				[204] = { 0.67, LH = { 197, 0.67 } }
 			},
 		},
-		W02_TCenter = XYPath {
+		S3_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W02_TCenterY",
+				SourceOp = "S3_E3CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W02_R_M = RectangleMask {
+		S3_E4_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input {
-				SourceOp = "W02_R_MWidth",
+				SourceOp = "S3_E4_MWidth",
 				Source = "Value",
 			},
 				Height = Input { Value = 0.0035, },
 				Center = Input {
-				SourceOp = "W02_R_MCenter",
+				SourceOp = "S3_E4_MCenter",
 				Source = "Value",
 			},
 				SoftEdge = Input { Value = 0, },
@@ -1318,9 +1384,9 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 1780 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 1760 } },
 		},
-		W02_R_MWidth = BezierSpline {
+		S3_E4_MWidth = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
@@ -1328,7 +1394,7 @@
 				[210] = { 0.28, LH = { 202.3, 0.28 } }
 			},
 		},
-		W02_R_MCenterX = BezierSpline {
+		S3_E4_MCenterX = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -1336,35 +1402,35 @@
 				[210] = { 0.223, LH = { 202.3, 0.223 } }
 			},
 		},
-		W02_R_MCenter = XYPath {
+		S3_E4_MCenter = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input {
-				SourceOp = "W02_R_MCenterX",
+				SourceOp = "S3_E4_MCenterX",
 				Source = "Value",
 			},
 				Y = Input { Value = 0.63, },
 			},
 		},
-		W02_R = Background {
+		S3_E4 = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.071, },
-				TopLeftGreen = Input { Value = 0.302, },
+				TopLeftRed = Input { Value = 0.070588, },
+				TopLeftGreen = Input { Value = 0.301961, },
 				TopLeftBlue = Input { Value = 1, },
 				TopLeftAlpha = Input { Value = 1, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 				EffectMask = Input {
-				SourceOp = "W02_R_M",
+				SourceOp = "S3_E4_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 1780 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 1760 } },
 		},
-		W02_G_T = TextPlus {
+		S3_E5_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -1377,16 +1443,16 @@
 				Size = Input { Value = 0.0204, },
 				Tracking = Input { Value = 1.3, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.42, },
-				Green1 = Input { Value = 0.42, },
-				Blue1 = Input { Value = 0.45, },
+				Red1 = Input { Value = 0.419608, },
+				Green1 = Input { Value = 0.419608, },
+				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 1860 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 1880 } },
 		},
-		W02_G_M = RectangleMask {
+		S3_E5_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -1398,28 +1464,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 1900 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 1920 } },
 		},
-		W02_G = Transform {
+		S3_E5 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W02_G_T",
+				SourceOp = "S3_E5_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W02_GCenter",
+				SourceOp = "S3_E5Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W02_G_M",
+				SourceOp = "S3_E5_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 1860 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 1880 } },
 		},
-		W02_GCenterY = BezierSpline {
+		S3_E5CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -1427,99 +1493,132 @@
 				[213] = { 0.6, LH = { 206, 0.6 } }
 			},
 		},
-		W02_GCenter = XYPath {
+		S3_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W02_GCenterY",
+				SourceOp = "S3_E5CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W02_BASE = Background {
+		S3_BASE = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
 				TopLeftAlpha = Input { Value = 0, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 500, 1400 } },
 		},
-		W02_MRG1 = Merge {
+		S3_MRG1 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W02_BASE",
+				SourceOp = "S3_BASE",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W02_IMG",
+				SourceOp = "WORK_02_MRG",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 610, 1400 } },
 		},
-		W02_MRG2 = Merge {
+		S3_MRG2 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W02_MRG1",
+				SourceOp = "S3_MRG1",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W02_N",
+				SourceOp = "S3_E2",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 720, 1400 } },
 		},
-		W02_MRG3 = Merge {
+		S3_MRG3 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W02_MRG2",
+				SourceOp = "S3_MRG2",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W02_T",
+				SourceOp = "S3_E3",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 830, 1400 } },
 		},
-		W02_MRG4 = Merge {
+		S3_MRG4 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W02_MRG3",
+				SourceOp = "S3_MRG3",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W02_R",
+				SourceOp = "S3_E4",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 940, 1400 } },
 		},
-		W02_MRG5 = Merge {
+		S3_MRG5 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W02_MRG4",
+				SourceOp = "S3_MRG4",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W02_G",
+				SourceOp = "S3_E5",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 1050, 1400 } },
+		},
+		S3_DRIFT = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S3_MRG5",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S3_DRIFTCenter",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 900, 1400 } },
+		},
+		S3_DRIFTCenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[180] = { 0.493, RH = { 199.58, 0.507 } },
+				[269] = { 0.507, LH = { 212.04, 0.507 } }
+			},
+		},
+		S3_DRIFTCenter = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.5, },
+				Y = Input {
+				SourceOp = "S3_DRIFTCenterY",
+				Source = "Value",
+			},
+			},
 		},
 		WORK_03 = Loader {
 			Clips = {
@@ -1549,7 +1648,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 2100 } },
 		},
-		W03_XF = Transform {
+		WORK_03_XF = Transform {
 			Inputs = {
 				Input = Input {
 				SourceOp = "WORK_03",
@@ -1557,32 +1656,32 @@
 			},
 				Center = Input { Value = { 0.5, 0.5 }, },
 				Size = Input {
-				SourceOp = "W03_XFSize",
+				SourceOp = "WORK_03_XFSize",
 				Source = "Value",
 			},
 				Angle = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 2100 } },
 		},
-		W03_XFSize = BezierSpline {
+		WORK_03_XFSize = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
-				[270] = { 1.12, RH = { 289.36, 1.02 } },
-				[358] = { 1.02, LH = { 301.68, 1.02 } }
+				[272] = { 1.12, RH = { 290.92, 1.02 } },
+				[358] = { 1.02, LH = { 302.96, 1.02 } }
 			},
 		},
-		W03_SLOT = RectangleMask {
+		WORK_03_SLOT = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input { Value = 0.834, },
 				Height = Input {
-				SourceOp = "W03_SLOTHeight",
+				SourceOp = "WORK_03_SLOTHeight",
 				Source = "Value",
 			},
 				Center = Input {
-				SourceOp = "W03_SLOTCenter",
+				SourceOp = "WORK_03_SLOTCenter",
 				Source = "Value",
 			},
 				SoftEdge = Input { Value = 0, },
@@ -1592,7 +1691,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 2160 } },
 		},
-		W03_SLOTHeight = BezierSpline {
+		WORK_03_SLOTHeight = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
@@ -1600,7 +1699,7 @@
 				[284] = { 0.44, LH = { 275.6, 0.44 } }
 			},
 		},
-		W03_SLOTCenterY = BezierSpline {
+		WORK_03_SLOTCenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -1608,50 +1707,50 @@
 				[284] = { 0.655, LH = { 275.6, 0.655 } }
 			},
 		},
-		W03_SLOTCenter = XYPath {
+		WORK_03_SLOTCenter = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.5, },
 				Y = Input {
-				SourceOp = "W03_SLOTCenterY",
+				SourceOp = "WORK_03_SLOTCenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W03_FIELD = Background {
+		WORK_03_FIELD = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
 				TopLeftAlpha = Input { Value = 0, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 220, 2100 } },
 		},
-		W03_IMG = Merge {
+		WORK_03_MRG = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W03_FIELD",
+				SourceOp = "WORK_03_FIELD",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W03_XF",
+				SourceOp = "WORK_03_XF",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 				Center = Input { Value = { 0.5, 0.655 }, },
 				EffectMask = Input {
-				SourceOp = "W03_SLOT",
+				SourceOp = "WORK_03_SLOT",
 				Source = "Mask",
 			},
 			},
 			ViewInfo = OperatorInfo { Pos = { 330, 2100 } },
 		},
-		W03_N_T = TextPlus {
+		S4_E2_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -1664,16 +1763,16 @@
 				Size = Input { Value = 0.0289, },
 				Tracking = Input { Value = 1.2, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 2240 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 2220 } },
 		},
-		W03_N_M = RectangleMask {
+		S4_E2_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -1685,28 +1784,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 2280 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 2260 } },
 		},
-		W03_N = Transform {
+		S4_E2 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W03_N_T",
+				SourceOp = "S4_E2_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W03_NCenter",
+				SourceOp = "S4_E2Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W03_N_M",
+				SourceOp = "S4_E2_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 2240 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 2220 } },
 		},
-		W03_NCenterY = BezierSpline {
+		S4_E2CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -1714,17 +1813,17 @@
 				[290] = { 0.375, LH = { 283, 0.375 } }
 			},
 		},
-		W03_NCenter = XYPath {
+		S4_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W03_NCenterY",
+				SourceOp = "S4_E2CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W03_T_T = TextPlus {
+		S4_E3_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -1737,16 +1836,16 @@
 				Size = Input { Value = 0.046, },
 				Tracking = Input { Value = 1, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 2360 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 2340 } },
 		},
-		W03_T_M = RectangleMask {
+		S4_E3_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -1758,28 +1857,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 2400 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 2380 } },
 		},
-		W03_T = Transform {
+		S4_E3 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W03_T_T",
+				SourceOp = "S4_E3_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W03_TCenter",
+				SourceOp = "S4_E3Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W03_T_M",
+				SourceOp = "S4_E3_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 2360 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 2340 } },
 		},
-		W03_TCenterY = BezierSpline {
+		S4_E3CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -1787,27 +1886,27 @@
 				[294] = { 0.325, LH = { 287, 0.325 } }
 			},
 		},
-		W03_TCenter = XYPath {
+		S4_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W03_TCenterY",
+				SourceOp = "S4_E3CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W03_R_M = RectangleMask {
+		S4_E4_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input {
-				SourceOp = "W03_R_MWidth",
+				SourceOp = "S4_E4_MWidth",
 				Source = "Value",
 			},
 				Height = Input { Value = 0.0035, },
 				Center = Input {
-				SourceOp = "W03_R_MCenter",
+				SourceOp = "S4_E4_MCenter",
 				Source = "Value",
 			},
 				SoftEdge = Input { Value = 0, },
@@ -1815,9 +1914,9 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 2480 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 2460 } },
 		},
-		W03_R_MWidth = BezierSpline {
+		S4_E4_MWidth = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
@@ -1825,7 +1924,7 @@
 				[300] = { 0.28, LH = { 292.3, 0.28 } }
 			},
 		},
-		W03_R_MCenterX = BezierSpline {
+		S4_E4_MCenterX = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -1833,35 +1932,35 @@
 				[300] = { 0.223, LH = { 292.3, 0.223 } }
 			},
 		},
-		W03_R_MCenter = XYPath {
+		S4_E4_MCenter = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input {
-				SourceOp = "W03_R_MCenterX",
+				SourceOp = "S4_E4_MCenterX",
 				Source = "Value",
 			},
 				Y = Input { Value = 0.285, },
 			},
 		},
-		W03_R = Background {
+		S4_E4 = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.071, },
-				TopLeftGreen = Input { Value = 0.302, },
+				TopLeftRed = Input { Value = 0.070588, },
+				TopLeftGreen = Input { Value = 0.301961, },
 				TopLeftBlue = Input { Value = 1, },
 				TopLeftAlpha = Input { Value = 1, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 				EffectMask = Input {
-				SourceOp = "W03_R_M",
+				SourceOp = "S4_E4_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 2480 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 2460 } },
 		},
-		W03_G_T = TextPlus {
+		S4_E5_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -1874,16 +1973,16 @@
 				Size = Input { Value = 0.0204, },
 				Tracking = Input { Value = 1.3, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.42, },
-				Green1 = Input { Value = 0.42, },
-				Blue1 = Input { Value = 0.45, },
+				Red1 = Input { Value = 0.419608, },
+				Green1 = Input { Value = 0.419608, },
+				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 2560 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 2580 } },
 		},
-		W03_G_M = RectangleMask {
+		S4_E5_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -1895,28 +1994,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 2600 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 2620 } },
 		},
-		W03_G = Transform {
+		S4_E5 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W03_G_T",
+				SourceOp = "S4_E5_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W03_GCenter",
+				SourceOp = "S4_E5Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W03_G_M",
+				SourceOp = "S4_E5_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 2560 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 2580 } },
 		},
-		W03_GCenterY = BezierSpline {
+		S4_E5CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -1924,99 +2023,132 @@
 				[303] = { 0.255, LH = { 296, 0.255 } }
 			},
 		},
-		W03_GCenter = XYPath {
+		S4_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W03_GCenterY",
+				SourceOp = "S4_E5CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W03_BASE = Background {
+		S4_BASE = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
 				TopLeftAlpha = Input { Value = 0, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 500, 2100 } },
 		},
-		W03_MRG1 = Merge {
+		S4_MRG1 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W03_BASE",
+				SourceOp = "S4_BASE",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W03_IMG",
+				SourceOp = "WORK_03_MRG",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 610, 2100 } },
 		},
-		W03_MRG2 = Merge {
+		S4_MRG2 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W03_MRG1",
+				SourceOp = "S4_MRG1",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W03_N",
+				SourceOp = "S4_E2",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 720, 2100 } },
 		},
-		W03_MRG3 = Merge {
+		S4_MRG3 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W03_MRG2",
+				SourceOp = "S4_MRG2",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W03_T",
+				SourceOp = "S4_E3",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 830, 2100 } },
 		},
-		W03_MRG4 = Merge {
+		S4_MRG4 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W03_MRG3",
+				SourceOp = "S4_MRG3",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W03_R",
+				SourceOp = "S4_E4",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 940, 2100 } },
 		},
-		W03_MRG5 = Merge {
+		S4_MRG5 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W03_MRG4",
+				SourceOp = "S4_MRG4",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W03_G",
+				SourceOp = "S4_E5",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 1050, 2100 } },
+		},
+		S4_DRIFT = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S4_MRG5",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S4_DRIFTCenter",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 900, 2100 } },
+		},
+		S4_DRIFTCenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[270] = { 0.493, RH = { 289.58, 0.507 } },
+				[359] = { 0.507, LH = { 302.04, 0.507 } }
+			},
+		},
+		S4_DRIFTCenter = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.5, },
+				Y = Input {
+				SourceOp = "S4_DRIFTCenterY",
+				Source = "Value",
+			},
+			},
 		},
 		WORK_04 = Loader {
 			Clips = {
@@ -2046,7 +2178,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 2800 } },
 		},
-		W04_XF = Transform {
+		WORK_04_XF = Transform {
 			Inputs = {
 				Input = Input {
 				SourceOp = "WORK_04",
@@ -2054,32 +2186,32 @@
 			},
 				Center = Input { Value = { 0.5, 0.5 }, },
 				Size = Input {
-				SourceOp = "W04_XFSize",
+				SourceOp = "WORK_04_XFSize",
 				Source = "Value",
 			},
 				Angle = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 2800 } },
 		},
-		W04_XFSize = BezierSpline {
+		WORK_04_XFSize = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
-				[360] = { 1.12, RH = { 379.36, 1.02 } },
-				[448] = { 1.02, LH = { 391.68, 1.02 } }
+				[362] = { 1.12, RH = { 380.92, 1.02 } },
+				[448] = { 1.02, LH = { 392.96, 1.02 } }
 			},
 		},
-		W04_SLOT = RectangleMask {
+		WORK_04_SLOT = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input { Value = 0.834, },
 				Height = Input {
-				SourceOp = "W04_SLOTHeight",
+				SourceOp = "WORK_04_SLOTHeight",
 				Source = "Value",
 			},
 				Center = Input {
-				SourceOp = "W04_SLOTCenter",
+				SourceOp = "WORK_04_SLOTCenter",
 				Source = "Value",
 			},
 				SoftEdge = Input { Value = 0, },
@@ -2089,7 +2221,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 2860 } },
 		},
-		W04_SLOTHeight = BezierSpline {
+		WORK_04_SLOTHeight = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
@@ -2097,7 +2229,7 @@
 				[374] = { 0.44, LH = { 365.6, 0.44 } }
 			},
 		},
-		W04_SLOTCenterY = BezierSpline {
+		WORK_04_SLOTCenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -2105,50 +2237,50 @@
 				[374] = { 0.345, LH = { 365.6, 0.345 } }
 			},
 		},
-		W04_SLOTCenter = XYPath {
+		WORK_04_SLOTCenter = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.5, },
 				Y = Input {
-				SourceOp = "W04_SLOTCenterY",
+				SourceOp = "WORK_04_SLOTCenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W04_FIELD = Background {
+		WORK_04_FIELD = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
 				TopLeftAlpha = Input { Value = 0, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 220, 2800 } },
 		},
-		W04_IMG = Merge {
+		WORK_04_MRG = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W04_FIELD",
+				SourceOp = "WORK_04_FIELD",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W04_XF",
+				SourceOp = "WORK_04_XF",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 				Center = Input { Value = { 0.5, 0.345 }, },
 				EffectMask = Input {
-				SourceOp = "W04_SLOT",
+				SourceOp = "WORK_04_SLOT",
 				Source = "Mask",
 			},
 			},
 			ViewInfo = OperatorInfo { Pos = { 330, 2800 } },
 		},
-		W04_N_T = TextPlus {
+		S5_E2_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -2161,16 +2293,16 @@
 				Size = Input { Value = 0.0289, },
 				Tracking = Input { Value = 1.2, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 2940 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 2920 } },
 		},
-		W04_N_M = RectangleMask {
+		S5_E2_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -2182,28 +2314,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 2980 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 2960 } },
 		},
-		W04_N = Transform {
+		S5_E2 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W04_N_T",
+				SourceOp = "S5_E2_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W04_NCenter",
+				SourceOp = "S5_E2Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W04_N_M",
+				SourceOp = "S5_E2_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 2940 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 2920 } },
 		},
-		W04_NCenterY = BezierSpline {
+		S5_E2CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -2211,17 +2343,17 @@
 				[380] = { 0.72, LH = { 373, 0.72 } }
 			},
 		},
-		W04_NCenter = XYPath {
+		S5_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W04_NCenterY",
+				SourceOp = "S5_E2CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W04_T_T = TextPlus {
+		S5_E3_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -2234,16 +2366,16 @@
 				Size = Input { Value = 0.046, },
 				Tracking = Input { Value = 1, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 3060 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 3040 } },
 		},
-		W04_T_M = RectangleMask {
+		S5_E3_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -2255,28 +2387,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 3100 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 3080 } },
 		},
-		W04_T = Transform {
+		S5_E3 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W04_T_T",
+				SourceOp = "S5_E3_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W04_TCenter",
+				SourceOp = "S5_E3Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W04_T_M",
+				SourceOp = "S5_E3_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 3060 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 3040 } },
 		},
-		W04_TCenterY = BezierSpline {
+		S5_E3CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -2284,27 +2416,27 @@
 				[384] = { 0.67, LH = { 377, 0.67 } }
 			},
 		},
-		W04_TCenter = XYPath {
+		S5_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W04_TCenterY",
+				SourceOp = "S5_E3CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W04_R_M = RectangleMask {
+		S5_E4_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input {
-				SourceOp = "W04_R_MWidth",
+				SourceOp = "S5_E4_MWidth",
 				Source = "Value",
 			},
 				Height = Input { Value = 0.0035, },
 				Center = Input {
-				SourceOp = "W04_R_MCenter",
+				SourceOp = "S5_E4_MCenter",
 				Source = "Value",
 			},
 				SoftEdge = Input { Value = 0, },
@@ -2312,9 +2444,9 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 3180 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 3160 } },
 		},
-		W04_R_MWidth = BezierSpline {
+		S5_E4_MWidth = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
@@ -2322,7 +2454,7 @@
 				[390] = { 0.28, LH = { 382.3, 0.28 } }
 			},
 		},
-		W04_R_MCenterX = BezierSpline {
+		S5_E4_MCenterX = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -2330,35 +2462,35 @@
 				[390] = { 0.223, LH = { 382.3, 0.223 } }
 			},
 		},
-		W04_R_MCenter = XYPath {
+		S5_E4_MCenter = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input {
-				SourceOp = "W04_R_MCenterX",
+				SourceOp = "S5_E4_MCenterX",
 				Source = "Value",
 			},
 				Y = Input { Value = 0.63, },
 			},
 		},
-		W04_R = Background {
+		S5_E4 = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.071, },
-				TopLeftGreen = Input { Value = 0.302, },
+				TopLeftRed = Input { Value = 0.070588, },
+				TopLeftGreen = Input { Value = 0.301961, },
 				TopLeftBlue = Input { Value = 1, },
 				TopLeftAlpha = Input { Value = 1, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 				EffectMask = Input {
-				SourceOp = "W04_R_M",
+				SourceOp = "S5_E4_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 3180 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 3160 } },
 		},
-		W04_G_T = TextPlus {
+		S5_E5_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -2371,16 +2503,16 @@
 				Size = Input { Value = 0.0204, },
 				Tracking = Input { Value = 1.3, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.42, },
-				Green1 = Input { Value = 0.42, },
-				Blue1 = Input { Value = 0.45, },
+				Red1 = Input { Value = 0.419608, },
+				Green1 = Input { Value = 0.419608, },
+				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 3260 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 3280 } },
 		},
-		W04_G_M = RectangleMask {
+		S5_E5_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -2392,28 +2524,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 3300 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 3320 } },
 		},
-		W04_G = Transform {
+		S5_E5 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W04_G_T",
+				SourceOp = "S5_E5_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W04_GCenter",
+				SourceOp = "S5_E5Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W04_G_M",
+				SourceOp = "S5_E5_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 3260 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 3280 } },
 		},
-		W04_GCenterY = BezierSpline {
+		S5_E5CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -2421,99 +2553,132 @@
 				[393] = { 0.6, LH = { 386, 0.6 } }
 			},
 		},
-		W04_GCenter = XYPath {
+		S5_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W04_GCenterY",
+				SourceOp = "S5_E5CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W04_BASE = Background {
+		S5_BASE = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
 				TopLeftAlpha = Input { Value = 0, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 500, 2800 } },
 		},
-		W04_MRG1 = Merge {
+		S5_MRG1 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W04_BASE",
+				SourceOp = "S5_BASE",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W04_IMG",
+				SourceOp = "WORK_04_MRG",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 610, 2800 } },
 		},
-		W04_MRG2 = Merge {
+		S5_MRG2 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W04_MRG1",
+				SourceOp = "S5_MRG1",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W04_N",
+				SourceOp = "S5_E2",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 720, 2800 } },
 		},
-		W04_MRG3 = Merge {
+		S5_MRG3 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W04_MRG2",
+				SourceOp = "S5_MRG2",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W04_T",
+				SourceOp = "S5_E3",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 830, 2800 } },
 		},
-		W04_MRG4 = Merge {
+		S5_MRG4 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W04_MRG3",
+				SourceOp = "S5_MRG3",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W04_R",
+				SourceOp = "S5_E4",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 940, 2800 } },
 		},
-		W04_MRG5 = Merge {
+		S5_MRG5 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W04_MRG4",
+				SourceOp = "S5_MRG4",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W04_G",
+				SourceOp = "S5_E5",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 1050, 2800 } },
+		},
+		S5_DRIFT = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S5_MRG5",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S5_DRIFTCenter",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 900, 2800 } },
+		},
+		S5_DRIFTCenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[360] = { 0.493, RH = { 379.58, 0.507 } },
+				[449] = { 0.507, LH = { 392.04, 0.507 } }
+			},
+		},
+		S5_DRIFTCenter = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.5, },
+				Y = Input {
+				SourceOp = "S5_DRIFTCenterY",
+				Source = "Value",
+			},
+			},
 		},
 		WORK_05 = Loader {
 			Clips = {
@@ -2543,7 +2708,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 0, 3500 } },
 		},
-		W05_XF = Transform {
+		WORK_05_XF = Transform {
 			Inputs = {
 				Input = Input {
 				SourceOp = "WORK_05",
@@ -2551,32 +2716,32 @@
 			},
 				Center = Input { Value = { 0.5, 0.5 }, },
 				Size = Input {
-				SourceOp = "W05_XFSize",
+				SourceOp = "WORK_05_XFSize",
 				Source = "Value",
 			},
 				Angle = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 3500 } },
 		},
-		W05_XFSize = BezierSpline {
+		WORK_05_XFSize = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
-				[450] = { 1.12, RH = { 469.36, 1.02 } },
-				[538] = { 1.02, LH = { 481.68, 1.02 } }
+				[452] = { 1.12, RH = { 470.92, 1.02 } },
+				[538] = { 1.02, LH = { 482.96, 1.02 } }
 			},
 		},
-		W05_SLOT = RectangleMask {
+		WORK_05_SLOT = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input { Value = 0.834, },
 				Height = Input {
-				SourceOp = "W05_SLOTHeight",
+				SourceOp = "WORK_05_SLOTHeight",
 				Source = "Value",
 			},
 				Center = Input {
-				SourceOp = "W05_SLOTCenter",
+				SourceOp = "WORK_05_SLOTCenter",
 				Source = "Value",
 			},
 				SoftEdge = Input { Value = 0, },
@@ -2586,7 +2751,7 @@
 			},
 			ViewInfo = OperatorInfo { Pos = { 110, 3560 } },
 		},
-		W05_SLOTHeight = BezierSpline {
+		WORK_05_SLOTHeight = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
@@ -2594,7 +2759,7 @@
 				[464] = { 0.44, LH = { 455.6, 0.44 } }
 			},
 		},
-		W05_SLOTCenterY = BezierSpline {
+		WORK_05_SLOTCenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -2602,50 +2767,50 @@
 				[464] = { 0.655, LH = { 455.6, 0.655 } }
 			},
 		},
-		W05_SLOTCenter = XYPath {
+		WORK_05_SLOTCenter = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.5, },
 				Y = Input {
-				SourceOp = "W05_SLOTCenterY",
+				SourceOp = "WORK_05_SLOTCenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W05_FIELD = Background {
+		WORK_05_FIELD = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
 				TopLeftAlpha = Input { Value = 0, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 220, 3500 } },
 		},
-		W05_IMG = Merge {
+		WORK_05_MRG = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W05_FIELD",
+				SourceOp = "WORK_05_FIELD",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W05_XF",
+				SourceOp = "WORK_05_XF",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 				Center = Input { Value = { 0.5, 0.655 }, },
 				EffectMask = Input {
-				SourceOp = "W05_SLOT",
+				SourceOp = "WORK_05_SLOT",
 				Source = "Mask",
 			},
 			},
 			ViewInfo = OperatorInfo { Pos = { 330, 3500 } },
 		},
-		W05_N_T = TextPlus {
+		S6_E2_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -2658,16 +2823,16 @@
 				Size = Input { Value = 0.0289, },
 				Tracking = Input { Value = 1.2, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
 				Blue1 = Input { Value = 1, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 3640 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 3620 } },
 		},
-		W05_N_M = RectangleMask {
+		S6_E2_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -2679,28 +2844,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 3680 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 3660 } },
 		},
-		W05_N = Transform {
+		S6_E2 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W05_N_T",
+				SourceOp = "S6_E2_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W05_NCenter",
+				SourceOp = "S6_E2Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W05_N_M",
+				SourceOp = "S6_E2_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 3640 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 3620 } },
 		},
-		W05_NCenterY = BezierSpline {
+		S6_E2CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -2708,17 +2873,17 @@
 				[470] = { 0.375, LH = { 463, 0.375 } }
 			},
 		},
-		W05_NCenter = XYPath {
+		S6_E2Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W05_NCenterY",
+				SourceOp = "S6_E2CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W05_T_T = TextPlus {
+		S6_E3_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -2731,16 +2896,16 @@
 				Size = Input { Value = 0.046, },
 				Tracking = Input { Value = 1, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 3760 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 3740 } },
 		},
-		W05_T_M = RectangleMask {
+		S6_E3_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -2752,28 +2917,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 3800 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 3780 } },
 		},
-		W05_T = Transform {
+		S6_E3 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W05_T_T",
+				SourceOp = "S6_E3_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W05_TCenter",
+				SourceOp = "S6_E3Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W05_T_M",
+				SourceOp = "S6_E3_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 3760 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 3740 } },
 		},
-		W05_TCenterY = BezierSpline {
+		S6_E3CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -2781,27 +2946,27 @@
 				[474] = { 0.325, LH = { 467, 0.325 } }
 			},
 		},
-		W05_TCenter = XYPath {
+		S6_E3Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W05_TCenterY",
+				SourceOp = "S6_E3CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W05_R_M = RectangleMask {
+		S6_E4_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
 				Width = Input {
-				SourceOp = "W05_R_MWidth",
+				SourceOp = "S6_E4_MWidth",
 				Source = "Value",
 			},
 				Height = Input { Value = 0.0035, },
 				Center = Input {
-				SourceOp = "W05_R_MCenter",
+				SourceOp = "S6_E4_MCenter",
 				Source = "Value",
 			},
 				SoftEdge = Input { Value = 0, },
@@ -2809,9 +2974,9 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 3880 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 3860 } },
 		},
-		W05_R_MWidth = BezierSpline {
+		S6_E4_MWidth = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
 			NameSet = true,
 			KeyFrames = {
@@ -2819,7 +2984,7 @@
 				[480] = { 0.28, LH = { 472.3, 0.28 } }
 			},
 		},
-		W05_R_MCenterX = BezierSpline {
+		S6_E4_MCenterX = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -2827,35 +2992,35 @@
 				[480] = { 0.223, LH = { 472.3, 0.223 } }
 			},
 		},
-		W05_R_MCenter = XYPath {
+		S6_E4_MCenter = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input {
-				SourceOp = "W05_R_MCenterX",
+				SourceOp = "S6_E4_MCenterX",
 				Source = "Value",
 			},
 				Y = Input { Value = 0.285, },
 			},
 		},
-		W05_R = Background {
+		S6_E4 = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.071, },
-				TopLeftGreen = Input { Value = 0.302, },
+				TopLeftRed = Input { Value = 0.070588, },
+				TopLeftGreen = Input { Value = 0.301961, },
 				TopLeftBlue = Input { Value = 1, },
 				TopLeftAlpha = Input { Value = 1, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 				EffectMask = Input {
-				SourceOp = "W05_R_M",
+				SourceOp = "S6_E4_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 3880 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 3860 } },
 		},
-		W05_G_T = TextPlus {
+		S6_E5_T = TextPlus {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
@@ -2868,16 +3033,16 @@
 				Size = Input { Value = 0.0204, },
 				Tracking = Input { Value = 1.3, },
 				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.42, },
-				Green1 = Input { Value = 0.42, },
-				Blue1 = Input { Value = 0.45, },
+				Red1 = Input { Value = 0.419608, },
+				Green1 = Input { Value = 0.419608, },
+				Blue1 = Input { Value = 0.45098, },
 				Alpha1 = Input { Value = 1, },
 				HorizontalJustificationNew = Input { Value = 0, },
 				VerticalJustificationNew = Input { Value = 3, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 3960 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 3980 } },
 		},
-		W05_G_M = RectangleMask {
+		S6_E5_M = RectangleMask {
 			Inputs = {
 				MaskWidth = Input { Value = 1080, },
 				MaskHeight = Input { Value = 1920, },
@@ -2889,28 +3054,28 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4000 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 4020 } },
 		},
-		W05_G = Transform {
+		S6_E5 = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W05_G_T",
+				SourceOp = "S6_E5_T",
 				Source = "Output",
 			},
 				Center = Input {
-				SourceOp = "W05_GCenter",
+				SourceOp = "S6_E5Center",
 				Source = "Value",
 			},
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 				EffectMask = Input {
-				SourceOp = "W05_G_M",
+				SourceOp = "S6_E5_M",
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 3960 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 3980 } },
 		},
-		W05_GCenterY = BezierSpline {
+		S6_E5CenterY = BezierSpline {
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
@@ -2918,1575 +3083,104 @@
 				[483] = { 0.255, LH = { 476, 0.255 } }
 			},
 		},
-		W05_GCenter = XYPath {
+		S6_E5Center = XYPath {
 			DrawMode = "ModifyOnly",
 			Inputs = {
 				X = Input { Value = 0.083, },
 				Y = Input {
-				SourceOp = "W05_GCenterY",
+				SourceOp = "S6_E5CenterY",
 				Source = "Value",
 			},
 			},
 		},
-		W05_BASE = Background {
+		S6_BASE = Background {
 			Inputs = {
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
 				TopLeftAlpha = Input { Value = 0, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 500, 3500 } },
 		},
-		W05_MRG1 = Merge {
+		S6_MRG1 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W05_BASE",
+				SourceOp = "S6_BASE",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W05_IMG",
+				SourceOp = "WORK_05_MRG",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 610, 3500 } },
 		},
-		W05_MRG2 = Merge {
+		S6_MRG2 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W05_MRG1",
+				SourceOp = "S6_MRG1",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W05_N",
+				SourceOp = "S6_E2",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 720, 3500 } },
 		},
-		W05_MRG3 = Merge {
+		S6_MRG3 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W05_MRG2",
+				SourceOp = "S6_MRG2",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W05_T",
+				SourceOp = "S6_E3",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 830, 3500 } },
 		},
-		W05_MRG4 = Merge {
+		S6_MRG4 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W05_MRG3",
+				SourceOp = "S6_MRG3",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W05_R",
+				SourceOp = "S6_E4",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 940, 3500 } },
 		},
-		W05_MRG5 = Merge {
+		S6_MRG5 = Merge {
 			Inputs = {
 				Background = Input {
-				SourceOp = "W05_MRG4",
+				SourceOp = "S6_MRG4",
 				Source = "Output",
 			},
 				Foreground = Input {
-				SourceOp = "W05_G",
+				SourceOp = "S6_E5",
 				Source = "Output",
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
 			ViewInfo = OperatorInfo { Pos = { 1050, 3500 } },
 		},
-		S7_LBL_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "HOW I WORK", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.017, },
-				Tracking = Input { Value = 1.35, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
-				Blue1 = Input { Value = 1, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4200 } },
-		},
-		S7_LBL_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.02975, },
-				Center = Input { Value = { 0.5, 0.845 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4240 } },
-		},
-		S7_LBL = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S7_LBL_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S7_LBLCenter",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S7_LBL_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 4200 } },
-		},
-		S7_LBLCenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[542] = { 0.82715, RH = { 543.6, 0.845 } },
-				[552] = { 0.845, LH = { 545, 0.845 } }
-			},
-		},
-		S7_LBLCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.083, },
-				Y = Input {
-				SourceOp = "S7_LBLCenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S7_N0_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "01", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.0255, },
-				Tracking = Input { Value = 1.2, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
-				Blue1 = Input { Value = 1, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4320 } },
-		},
-		S7_N0_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.044625, },
-				Center = Input { Value = { 0.5, 0.64 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4360 } },
-		},
-		S7_N0 = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S7_N0_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S7_N0Center",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S7_N0_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 4320 } },
-		},
-		S7_N0CenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[548] = { 0.613225, RH = { 549.6, 0.64 } },
-				[558] = { 0.64, LH = { 551, 0.64 } }
-			},
-		},
-		S7_N0Center = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.083, },
-				Y = Input {
-				SourceOp = "S7_N0CenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S7_T0_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "STRATEGY FIRST", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.046, },
-				Tracking = Input { Value = 1, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4400 } },
-		},
-		S7_T0_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.0805, },
-				Center = Input { Value = { 0.5, 0.64 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4440 } },
-		},
-		S7_T0 = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S7_T0_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S7_T0Center",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S7_T0_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 4400 } },
-		},
-		S7_T0CenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[551] = { 0.5917, RH = { 552.6, 0.64 } },
-				[561] = { 0.64, LH = { 554, 0.64 } }
-			},
-		},
-		S7_T0Center = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.198, },
-				Y = Input {
-				SourceOp = "S7_T0CenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S7_N1_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "02", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.0255, },
-				Tracking = Input { Value = 1.2, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
-				Blue1 = Input { Value = 1, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4560 } },
-		},
-		S7_N1_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.044625, },
-				Center = Input { Value = { 0.5, 0.515 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4600 } },
-		},
-		S7_N1 = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S7_N1_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S7_N1Center",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S7_N1_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 4560 } },
-		},
-		S7_N1CenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[555] = { 0.488225, RH = { 556.6, 0.515 } },
-				[565] = { 0.515, LH = { 558, 0.515 } }
-			},
-		},
-		S7_N1Center = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.083, },
-				Y = Input {
-				SourceOp = "S7_N1CenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S7_T1_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "SYSTEMS, NOT ASSETS", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.046, },
-				Tracking = Input { Value = 1, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4640 } },
-		},
-		S7_T1_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.0805, },
-				Center = Input { Value = { 0.5, 0.515 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4680 } },
-		},
-		S7_T1 = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S7_T1_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S7_T1Center",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S7_T1_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 4640 } },
-		},
-		S7_T1CenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[558] = { 0.4667, RH = { 559.6, 0.515 } },
-				[568] = { 0.515, LH = { 561, 0.515 } }
-			},
-		},
-		S7_T1Center = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.198, },
-				Y = Input {
-				SourceOp = "S7_T1CenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S7_N2_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "03", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.0255, },
-				Tracking = Input { Value = 1.2, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
-				Blue1 = Input { Value = 1, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4800 } },
-		},
-		S7_N2_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.044625, },
-				Center = Input { Value = { 0.5, 0.39 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4840 } },
-		},
-		S7_N2 = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S7_N2_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S7_N2Center",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S7_N2_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 4800 } },
-		},
-		S7_N2CenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[562] = { 0.363225, RH = { 563.6, 0.39 } },
-				[572] = { 0.39, LH = { 565, 0.39 } }
-			},
-		},
-		S7_N2Center = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.083, },
-				Y = Input {
-				SourceOp = "S7_N2CenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S7_T2_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "BUILT TO SCALE", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.046, },
-				Tracking = Input { Value = 1, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4880 } },
-		},
-		S7_T2_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.0805, },
-				Center = Input { Value = { 0.5, 0.39 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4920 } },
-		},
-		S7_T2 = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S7_T2_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S7_T2Center",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S7_T2_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 4880 } },
-		},
-		S7_T2CenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[565] = { 0.3417, RH = { 566.6, 0.39 } },
-				[575] = { 0.39, LH = { 568, 0.39 } }
-			},
-		},
-		S7_T2Center = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.198, },
-				Y = Input {
-				SourceOp = "S7_T2CenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S7_R_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input {
-				SourceOp = "S7_R_MWidth",
-				Source = "Value",
-			},
-				Height = Input { Value = 0.0035, },
-				Center = Input {
-				SourceOp = "S7_R_MCenter",
-				Source = "Value",
-			},
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5060 } },
-		},
-		S7_R_MWidth = BezierSpline {
-			SplineColor = { Red = 255, Green = 0, Blue = 0 },
-			NameSet = true,
-			KeyFrames = {
-				[576] = { 0, RH = { 577.76, 0.42 } },
-				[587] = { 0.42, LH = { 579.3, 0.42 } }
-			},
-		},
-		S7_R_MCenterX = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[576] = { 0.083, RH = { 577.76, 0.293 } },
-				[587] = { 0.293, LH = { 579.3, 0.293 } }
-			},
-		},
-		S7_R_MCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input {
-				SourceOp = "S7_R_MCenterX",
-				Source = "Value",
-			},
-				Y = Input { Value = 0.255, },
-			},
-		},
-		S7_R = Background {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.071, },
-				TopLeftGreen = Input { Value = 0.302, },
-				TopLeftBlue = Input { Value = 1, },
-				TopLeftAlpha = Input { Value = 1, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				EffectMask = Input {
-				SourceOp = "S7_R_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 5060 } },
-		},
-		S7_BASE = Background {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
-				TopLeftAlpha = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 500, 4200 } },
-		},
-		S7_MRG1 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S7_BASE",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S7_LBL",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 610, 4200 } },
-		},
-		S7_MRG2 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S7_MRG1",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S7_N0",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 720, 4200 } },
-		},
-		S7_MRG3 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S7_MRG2",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S7_T0",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 830, 4200 } },
-		},
-		S7_MRG4 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S7_MRG3",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S7_N1",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 940, 4200 } },
-		},
-		S7_MRG5 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S7_MRG4",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S7_T1",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 1050, 4200 } },
-		},
-		S7_MRG6 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S7_MRG5",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S7_N2",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 1160, 4200 } },
-		},
-		S7_MRG7 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S7_MRG6",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S7_T2",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 1270, 4200 } },
-		},
-		S7_MRG8 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S7_MRG7",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S7_R",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 1380, 4200 } },
-		},
-		S8_A_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "STELIOS", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.095, },
-				Tracking = Input { Value = 1, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4900 } },
-		},
-		S8_A_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.16625, },
-				Center = Input { Value = { 0.5, 0.6 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 4940 } },
-		},
-		S8_A = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S8_A_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S8_ACenter",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S8_A_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 4900 } },
-		},
-		S8_ACenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[634] = { 0.50025, RH = { 635.6, 0.6 } },
-				[644] = { 0.6, LH = { 637, 0.6 } }
-			},
-		},
-		S8_ACenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.083, },
-				Y = Input {
-				SourceOp = "S8_ACenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S8_B_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "MITADIS", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.095, },
-				Tracking = Input { Value = 1, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5020 } },
-		},
-		S8_B_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.16625, },
-				Center = Input { Value = { 0.5, 0.505 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5060 } },
-		},
-		S8_B = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S8_B_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S8_BCenter",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S8_B_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 5020 } },
-		},
-		S8_BCenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[639] = { 0.40525, RH = { 640.6, 0.505 } },
-				[649] = { 0.505, LH = { 642, 0.505 } }
-			},
-		},
-		S8_BCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.083, },
-				Y = Input {
-				SourceOp = "S8_BCenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S8_R1_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input {
-				SourceOp = "S8_R1_MWidth",
-				Source = "Value",
-			},
-				Height = Input { Value = 0.0035, },
-				Center = Input {
-				SourceOp = "S8_R1_MCenter",
-				Source = "Value",
-			},
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5140 } },
-		},
-		S8_R1_MWidth = BezierSpline {
-			SplineColor = { Red = 255, Green = 0, Blue = 0 },
-			NameSet = true,
-			KeyFrames = {
-				[646] = { 0, RH = { 647.76, 0.5 } },
-				[657] = { 0.5, LH = { 649.3, 0.5 } }
-			},
-		},
-		S8_R1_MCenterX = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[646] = { 0.083, RH = { 647.76, 0.333 } },
-				[657] = { 0.333, LH = { 649.3, 0.333 } }
-			},
-		},
-		S8_R1_MCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input {
-				SourceOp = "S8_R1_MCenterX",
-				Source = "Value",
-			},
-				Y = Input { Value = 0.455, },
-			},
-		},
-		S8_R1 = Background {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.071, },
-				TopLeftGreen = Input { Value = 0.302, },
-				TopLeftBlue = Input { Value = 1, },
-				TopLeftAlpha = Input { Value = 1, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				EffectMask = Input {
-				SourceOp = "S8_R1_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 5140 } },
-		},
-		S8_C_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "GRAPHIC DESIGNER", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.03312, },
-				Tracking = Input { Value = 1.4, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.071, },
-				Green1 = Input { Value = 0.302, },
-				Blue1 = Input { Value = 1, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5220 } },
-		},
-		S8_C_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.05796, },
-				Center = Input { Value = { 0.5, 0.415 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5260 } },
-		},
-		S8_C = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S8_C_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S8_CCenter",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S8_C_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 5220 } },
-		},
-		S8_CCenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[650] = { 0.380224, RH = { 651.6, 0.415 } },
-				[660] = { 0.415, LH = { 653, 0.415 } }
-			},
-		},
-		S8_CCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.083, },
-				Y = Input {
-				SourceOp = "S8_CCenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S8_D_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "LET'S BUILD", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.05616, },
-				Tracking = Input { Value = 1, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5340 } },
-		},
-		S8_D_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.09828, },
-				Center = Input { Value = { 0.5, 0.315 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5380 } },
-		},
-		S8_D = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S8_D_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S8_DCenter",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S8_D_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 5340 } },
-		},
-		S8_DCenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[658] = { 0.256032, RH = { 659.6, 0.315 } },
-				[668] = { 0.315, LH = { 661, 0.315 } }
-			},
-		},
-		S8_DCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.083, },
-				Y = Input {
-				SourceOp = "S8_DCenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S8_E_T = TextPlus {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				StyledText = Input { Value = "YOUR BRAND", },
-				Font = Input { Value = "Helvetica Neue", },
-				Style = Input { Value = "Bold", },
-				Size = Input { Value = 0.05616, },
-				Tracking = Input { Value = 1, },
-				LineSpacing = Input { Value = 1, },
-				Red1 = Input { Value = 0.949, },
-				Green1 = Input { Value = 0.949, },
-				Blue1 = Input { Value = 0.957, },
-				Alpha1 = Input { Value = 1, },
-				HorizontalJustificationNew = Input { Value = 0, },
-				VerticalJustificationNew = Input { Value = 3, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5460 } },
-		},
-		S8_E_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input { Value = 1.4, },
-				Height = Input { Value = 0.09828, },
-				Center = Input { Value = { 0.5, 0.24 }, },
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5500 } },
-		},
-		S8_E = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S8_E_T",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S8_ECenter",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-				EffectMask = Input {
-				SourceOp = "S8_E_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 5460 } },
-		},
-		S8_ECenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[663] = { 0.181032, RH = { 664.6, 0.24 } },
-				[673] = { 0.24, LH = { 666, 0.24 } }
-			},
-		},
-		S8_ECenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.083, },
-				Y = Input {
-				SourceOp = "S8_ECenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S8_R2_M = RectangleMask {
-			Inputs = {
-				MaskWidth = Input { Value = 1080, },
-				MaskHeight = Input { Value = 1920, },
-				Width = Input {
-				SourceOp = "S8_R2_MWidth",
-				Source = "Value",
-			},
-				Height = Input { Value = 0.006, },
-				Center = Input {
-				SourceOp = "S8_R2_MCenter",
-				Source = "Value",
-			},
-				SoftEdge = Input { Value = 0, },
-				CornerRadius = Input { Value = 0, },
-				Invert = Input { Value = 0, },
-				MaskClipMode = Input { Value = FuID { "None" }, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5580 } },
-		},
-		S8_R2_MWidth = BezierSpline {
-			SplineColor = { Red = 255, Green = 0, Blue = 0 },
-			NameSet = true,
-			KeyFrames = {
-				[670] = { 0, RH = { 671.76, 0.62 } },
-				[681] = { 0.62, LH = { 673.3, 0.62 } }
-			},
-		},
-		S8_R2_MCenterX = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[670] = { 0.083, RH = { 671.76, 0.393 } },
-				[681] = { 0.393, LH = { 673.3, 0.393 } }
-			},
-		},
-		S8_R2_MCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input {
-				SourceOp = "S8_R2_MCenterX",
-				Source = "Value",
-			},
-				Y = Input { Value = 0.195, },
-			},
-		},
-		S8_R2 = Background {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.071, },
-				TopLeftGreen = Input { Value = 0.302, },
-				TopLeftBlue = Input { Value = 1, },
-				TopLeftAlpha = Input { Value = 1, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-				EffectMask = Input {
-				SourceOp = "S8_R2_M",
-				Source = "Mask",
-			},
-			},
-			ViewInfo = OperatorInfo { Pos = { 110, 5580 } },
-		},
-		S8_BASE = Background {
-			Inputs = {
-				Width = Input { Value = 1080, },
-				Height = Input { Value = 1920, },
-				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
-				TopLeftAlpha = Input { Value = 0, },
-				GlobalIn = Input { Value = 0, },
-				GlobalOut = Input { Value = 719, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 500, 4900 } },
-		},
-		S8_MRG1 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S8_BASE",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S8_A",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 610, 4900 } },
-		},
-		S8_MRG2 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S8_MRG1",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S8_B",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 720, 4900 } },
-		},
-		S8_MRG3 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S8_MRG2",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S8_R1",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 830, 4900 } },
-		},
-		S8_MRG4 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S8_MRG3",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S8_C",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 940, 4900 } },
-		},
-		S8_MRG5 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S8_MRG4",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S8_D",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 1050, 4900 } },
-		},
-		S8_MRG6 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S8_MRG5",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S8_E",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 1160, 4900 } },
-		},
-		S8_MRG7 = Merge {
-			Inputs = {
-				Background = Input {
-				SourceOp = "S8_MRG6",
-				Source = "Output",
-			},
-				Foreground = Input {
-				SourceOp = "S8_R2",
-				Source = "Output",
-			},
-				PerformDepthMerge = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 1270, 4900 } },
-		},
-		S1_DRIFT = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "S1_MRG6",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S1_DRIFTCenter",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 900, 0 } },
-		},
-		S1_DRIFTCenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[0] = { 0.494, RH = { 19.58, 0.508 } },
-				[89] = { 0.508, LH = { 32.04, 0.508 } }
-			},
-		},
-		S1_DRIFTCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.5, },
-				Y = Input {
-				SourceOp = "S1_DRIFTCenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S2_DRIFT = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "W01_MRG5",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S2_DRIFTCenter",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 900, 700 } },
-		},
-		S2_DRIFTCenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[90] = { 0.494, RH = { 109.58, 0.508 } },
-				[179] = { 0.508, LH = { 122.04, 0.508 } }
-			},
-		},
-		S2_DRIFTCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.5, },
-				Y = Input {
-				SourceOp = "S2_DRIFTCenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S3_DRIFT = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "W02_MRG5",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S3_DRIFTCenter",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 900, 1400 } },
-		},
-		S3_DRIFTCenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[180] = { 0.494, RH = { 199.58, 0.508 } },
-				[269] = { 0.508, LH = { 212.04, 0.508 } }
-			},
-		},
-		S3_DRIFTCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.5, },
-				Y = Input {
-				SourceOp = "S3_DRIFTCenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S4_DRIFT = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "W03_MRG5",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S4_DRIFTCenter",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 900, 2100 } },
-		},
-		S4_DRIFTCenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[270] = { 0.494, RH = { 289.58, 0.508 } },
-				[359] = { 0.508, LH = { 302.04, 0.508 } }
-			},
-		},
-		S4_DRIFTCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.5, },
-				Y = Input {
-				SourceOp = "S4_DRIFTCenterY",
-				Source = "Value",
-			},
-			},
-		},
-		S5_DRIFT = Transform {
-			Inputs = {
-				Input = Input {
-				SourceOp = "W04_MRG5",
-				Source = "Output",
-			},
-				Center = Input {
-				SourceOp = "S5_DRIFTCenter",
-				Source = "Value",
-			},
-				Size = Input { Value = 1, },
-				Angle = Input { Value = 0, },
-			},
-			ViewInfo = OperatorInfo { Pos = { 900, 2800 } },
-		},
-		S5_DRIFTCenterY = BezierSpline {
-			SplineColor = { Red = 0, Green = 160, Blue = 255 },
-			NameSet = true,
-			KeyFrames = {
-				[360] = { 0.494, RH = { 379.58, 0.508 } },
-				[449] = { 0.508, LH = { 392.04, 0.508 } }
-			},
-		},
-		S5_DRIFTCenter = XYPath {
-			DrawMode = "ModifyOnly",
-			Inputs = {
-				X = Input { Value = 0.5, },
-				Y = Input {
-				SourceOp = "S5_DRIFTCenterY",
-				Source = "Value",
-			},
-			},
-		},
 		S6_DRIFT = Transform {
 			Inputs = {
 				Input = Input {
-				SourceOp = "W05_MRG5",
+				SourceOp = "S6_MRG5",
 				Source = "Output",
 			},
 				Center = Input {
@@ -4502,8 +3196,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[450] = { 0.494, RH = { 469.58, 0.508 } },
-				[539] = { 0.508, LH = { 482.04, 0.508 } }
+				[450] = { 0.493, RH = { 469.58, 0.507 } },
+				[539] = { 0.507, LH = { 482.04, 0.507 } }
 			},
 		},
 		S6_DRIFTCenter = XYPath {
@@ -4515,6 +3209,707 @@
 				Source = "Value",
 			},
 			},
+		},
+		S7_E1_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "HOW I WORK", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.017, },
+				Tracking = Input { Value = 1.35, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
+				Blue1 = Input { Value = 1, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4200 } },
+		},
+		S7_E1_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.02975, },
+				Center = Input { Value = { 0.5, 0.845 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4240 } },
+		},
+		S7_E1 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S7_E1_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S7_E1Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S7_E1_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 4200 } },
+		},
+		S7_E1CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[542] = { 0.82715, RH = { 543.6, 0.845 } },
+				[552] = { 0.845, LH = { 545, 0.845 } }
+			},
+		},
+		S7_E1Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.083, },
+				Y = Input {
+				SourceOp = "S7_E1CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S7_E2_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "01", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.0255, },
+				Tracking = Input { Value = 1.2, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
+				Blue1 = Input { Value = 1, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4320 } },
+		},
+		S7_E2_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.044625, },
+				Center = Input { Value = { 0.5, 0.64 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4360 } },
+		},
+		S7_E2 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S7_E2_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S7_E2Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S7_E2_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 4320 } },
+		},
+		S7_E2CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[548] = { 0.613225, RH = { 549.6, 0.64 } },
+				[558] = { 0.64, LH = { 551, 0.64 } }
+			},
+		},
+		S7_E2Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.083, },
+				Y = Input {
+				SourceOp = "S7_E2CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S7_E3_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "STRATEGY FIRST", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.046, },
+				Tracking = Input { Value = 1, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4440 } },
+		},
+		S7_E3_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.0805, },
+				Center = Input { Value = { 0.5, 0.64 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4480 } },
+		},
+		S7_E3 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S7_E3_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S7_E3Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S7_E3_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 4440 } },
+		},
+		S7_E3CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[551] = { 0.5917, RH = { 552.6, 0.64 } },
+				[561] = { 0.64, LH = { 554, 0.64 } }
+			},
+		},
+		S7_E3Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.198, },
+				Y = Input {
+				SourceOp = "S7_E3CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S7_E4_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "02", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.0255, },
+				Tracking = Input { Value = 1.2, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
+				Blue1 = Input { Value = 1, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4560 } },
+		},
+		S7_E4_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.044625, },
+				Center = Input { Value = { 0.5, 0.515 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4600 } },
+		},
+		S7_E4 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S7_E4_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S7_E4Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S7_E4_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 4560 } },
+		},
+		S7_E4CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[555] = { 0.488225, RH = { 556.6, 0.515 } },
+				[565] = { 0.515, LH = { 558, 0.515 } }
+			},
+		},
+		S7_E4Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.083, },
+				Y = Input {
+				SourceOp = "S7_E4CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S7_E5_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "SYSTEMS, NOT ASSETS", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.046, },
+				Tracking = Input { Value = 1, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4680 } },
+		},
+		S7_E5_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.0805, },
+				Center = Input { Value = { 0.5, 0.515 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4720 } },
+		},
+		S7_E5 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S7_E5_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S7_E5Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S7_E5_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 4680 } },
+		},
+		S7_E5CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[558] = { 0.4667, RH = { 559.6, 0.515 } },
+				[568] = { 0.515, LH = { 561, 0.515 } }
+			},
+		},
+		S7_E5Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.198, },
+				Y = Input {
+				SourceOp = "S7_E5CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S7_E6_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "03", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.0255, },
+				Tracking = Input { Value = 1.2, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
+				Blue1 = Input { Value = 1, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4800 } },
+		},
+		S7_E6_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.044625, },
+				Center = Input { Value = { 0.5, 0.39 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4840 } },
+		},
+		S7_E6 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S7_E6_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S7_E6Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S7_E6_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 4800 } },
+		},
+		S7_E6CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[562] = { 0.363225, RH = { 563.6, 0.39 } },
+				[572] = { 0.39, LH = { 565, 0.39 } }
+			},
+		},
+		S7_E6Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.083, },
+				Y = Input {
+				SourceOp = "S7_E6CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S7_E7_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "BUILT TO SCALE", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.046, },
+				Tracking = Input { Value = 1, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4920 } },
+		},
+		S7_E7_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.0805, },
+				Center = Input { Value = { 0.5, 0.39 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4960 } },
+		},
+		S7_E7 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S7_E7_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S7_E7Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S7_E7_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 4920 } },
+		},
+		S7_E7CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[565] = { 0.3417, RH = { 566.6, 0.39 } },
+				[575] = { 0.39, LH = { 568, 0.39 } }
+			},
+		},
+		S7_E7Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.198, },
+				Y = Input {
+				SourceOp = "S7_E7CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S7_E8_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input {
+				SourceOp = "S7_E8_MWidth",
+				Source = "Value",
+			},
+				Height = Input { Value = 0.0035, },
+				Center = Input {
+				SourceOp = "S7_E8_MCenter",
+				Source = "Value",
+			},
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 5040 } },
+		},
+		S7_E8_MWidth = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			NameSet = true,
+			KeyFrames = {
+				[576] = { 0, RH = { 577.76, 0.42 } },
+				[587] = { 0.42, LH = { 579.3, 0.42 } }
+			},
+		},
+		S7_E8_MCenterX = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[576] = { 0.083, RH = { 577.76, 0.293 } },
+				[587] = { 0.293, LH = { 579.3, 0.293 } }
+			},
+		},
+		S7_E8_MCenter = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input {
+				SourceOp = "S7_E8_MCenterX",
+				Source = "Value",
+			},
+				Y = Input { Value = 0.255, },
+			},
+		},
+		S7_E8 = Background {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				TopLeftRed = Input { Value = 0.070588, },
+				TopLeftGreen = Input { Value = 0.301961, },
+				TopLeftBlue = Input { Value = 1, },
+				TopLeftAlpha = Input { Value = 1, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				EffectMask = Input {
+				SourceOp = "S7_E8_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 5040 } },
+		},
+		S7_BASE = Background {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
+				TopLeftAlpha = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 500, 4200 } },
+		},
+		S7_MRG1 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S7_BASE",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S7_E1",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 610, 4200 } },
+		},
+		S7_MRG2 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S7_MRG1",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S7_E2",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 720, 4200 } },
+		},
+		S7_MRG3 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S7_MRG2",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S7_E3",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 830, 4200 } },
+		},
+		S7_MRG4 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S7_MRG3",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S7_E4",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 940, 4200 } },
+		},
+		S7_MRG5 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S7_MRG4",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S7_E5",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1050, 4200 } },
+		},
+		S7_MRG6 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S7_MRG5",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S7_E6",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1160, 4200 } },
+		},
+		S7_MRG7 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S7_MRG6",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S7_E7",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1270, 4200 } },
+		},
+		S7_MRG8 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S7_MRG7",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S7_E8",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1380, 4200 } },
 		},
 		S7_DRIFT = Transform {
 			Inputs = {
@@ -4535,8 +3930,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[540] = { 0.494, RH = { 559.58, 0.508 } },
-				[629] = { 0.508, LH = { 572.04, 0.508 } }
+				[540] = { 0.493, RH = { 559.58, 0.507 } },
+				[629] = { 0.507, LH = { 572.04, 0.507 } }
 			},
 		},
 		S7_DRIFTCenter = XYPath {
@@ -4548,6 +3943,611 @@
 				Source = "Value",
 			},
 			},
+		},
+		S8_E1_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "STELIOS", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.095, },
+				Tracking = Input { Value = 1, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4900 } },
+		},
+		S8_E1_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.16625, },
+				Center = Input { Value = { 0.5, 0.6 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 4940 } },
+		},
+		S8_E1 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S8_E1_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S8_E1Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S8_E1_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 4900 } },
+		},
+		S8_E1CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[634] = { 0.50025, RH = { 635.6, 0.6 } },
+				[644] = { 0.6, LH = { 637, 0.6 } }
+			},
+		},
+		S8_E1Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.083, },
+				Y = Input {
+				SourceOp = "S8_E1CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S8_E2_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "MITADIS", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.095, },
+				Tracking = Input { Value = 1, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 5020 } },
+		},
+		S8_E2_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.16625, },
+				Center = Input { Value = { 0.5, 0.505 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 5060 } },
+		},
+		S8_E2 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S8_E2_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S8_E2Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S8_E2_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 5020 } },
+		},
+		S8_E2CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[639] = { 0.40525, RH = { 640.6, 0.505 } },
+				[649] = { 0.505, LH = { 642, 0.505 } }
+			},
+		},
+		S8_E2Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.083, },
+				Y = Input {
+				SourceOp = "S8_E2CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S8_E3_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input {
+				SourceOp = "S8_E3_MWidth",
+				Source = "Value",
+			},
+				Height = Input { Value = 0.0035, },
+				Center = Input {
+				SourceOp = "S8_E3_MCenter",
+				Source = "Value",
+			},
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 5140 } },
+		},
+		S8_E3_MWidth = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			NameSet = true,
+			KeyFrames = {
+				[646] = { 0, RH = { 647.76, 0.5 } },
+				[657] = { 0.5, LH = { 649.3, 0.5 } }
+			},
+		},
+		S8_E3_MCenterX = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[646] = { 0.083, RH = { 647.76, 0.333 } },
+				[657] = { 0.333, LH = { 649.3, 0.333 } }
+			},
+		},
+		S8_E3_MCenter = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input {
+				SourceOp = "S8_E3_MCenterX",
+				Source = "Value",
+			},
+				Y = Input { Value = 0.455, },
+			},
+		},
+		S8_E3 = Background {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				TopLeftRed = Input { Value = 0.070588, },
+				TopLeftGreen = Input { Value = 0.301961, },
+				TopLeftBlue = Input { Value = 1, },
+				TopLeftAlpha = Input { Value = 1, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				EffectMask = Input {
+				SourceOp = "S8_E3_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 5140 } },
+		},
+		S8_E4_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "GRAPHIC DESIGNER", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.03312, },
+				Tracking = Input { Value = 1.4, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.070588, },
+				Green1 = Input { Value = 0.301961, },
+				Blue1 = Input { Value = 1, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 5260 } },
+		},
+		S8_E4_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.05796, },
+				Center = Input { Value = { 0.5, 0.415 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 5300 } },
+		},
+		S8_E4 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S8_E4_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S8_E4Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S8_E4_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 5260 } },
+		},
+		S8_E4CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[650] = { 0.380224, RH = { 651.6, 0.415 } },
+				[660] = { 0.415, LH = { 653, 0.415 } }
+			},
+		},
+		S8_E4Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.083, },
+				Y = Input {
+				SourceOp = "S8_E4CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S8_E5_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "LET'S BUILD", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.05616, },
+				Tracking = Input { Value = 1, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 5380 } },
+		},
+		S8_E5_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.09828, },
+				Center = Input { Value = { 0.5, 0.315 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 5420 } },
+		},
+		S8_E5 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S8_E5_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S8_E5Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S8_E5_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 5380 } },
+		},
+		S8_E5CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[658] = { 0.256032, RH = { 659.6, 0.315 } },
+				[668] = { 0.315, LH = { 661, 0.315 } }
+			},
+		},
+		S8_E5Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.083, },
+				Y = Input {
+				SourceOp = "S8_E5CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S8_E6_T = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "YOUR BRAND", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.05616, },
+				Tracking = Input { Value = 1, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.94902, },
+				Green1 = Input { Value = 0.94902, },
+				Blue1 = Input { Value = 0.956863, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 5500 } },
+		},
+		S8_E6_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.09828, },
+				Center = Input { Value = { 0.5, 0.24 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 5540 } },
+		},
+		S8_E6 = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "S8_E6_T",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "S8_E6Center",
+				Source = "Value",
+			},
+				Size = Input { Value = 1, },
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "S8_E6_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 5500 } },
+		},
+		S8_E6CenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[663] = { 0.181032, RH = { 664.6, 0.24 } },
+				[673] = { 0.24, LH = { 666, 0.24 } }
+			},
+		},
+		S8_E6Center = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.083, },
+				Y = Input {
+				SourceOp = "S8_E6CenterY",
+				Source = "Value",
+			},
+			},
+		},
+		S8_E7_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input {
+				SourceOp = "S8_E7_MWidth",
+				Source = "Value",
+			},
+				Height = Input { Value = 0.006, },
+				Center = Input {
+				SourceOp = "S8_E7_MCenter",
+				Source = "Value",
+			},
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 5620 } },
+		},
+		S8_E7_MWidth = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			NameSet = true,
+			KeyFrames = {
+				[670] = { 0, RH = { 671.76, 0.62 } },
+				[681] = { 0.62, LH = { 673.3, 0.62 } }
+			},
+		},
+		S8_E7_MCenterX = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[670] = { 0.083, RH = { 671.76, 0.393 } },
+				[681] = { 0.393, LH = { 673.3, 0.393 } }
+			},
+		},
+		S8_E7_MCenter = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input {
+				SourceOp = "S8_E7_MCenterX",
+				Source = "Value",
+			},
+				Y = Input { Value = 0.195, },
+			},
+		},
+		S8_E7 = Background {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				TopLeftRed = Input { Value = 0.070588, },
+				TopLeftGreen = Input { Value = 0.301961, },
+				TopLeftBlue = Input { Value = 1, },
+				TopLeftAlpha = Input { Value = 1, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				EffectMask = Input {
+				SourceOp = "S8_E7_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 5620 } },
+		},
+		S8_BASE = Background {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				TopLeftRed = Input { Value = 0, },
+				TopLeftGreen = Input { Value = 0, },
+				TopLeftBlue = Input { Value = 0, },
+				TopLeftAlpha = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 500, 4900 } },
+		},
+		S8_MRG1 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S8_BASE",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S8_E1",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 610, 4900 } },
+		},
+		S8_MRG2 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S8_MRG1",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S8_E2",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 720, 4900 } },
+		},
+		S8_MRG3 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S8_MRG2",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S8_E3",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 830, 4900 } },
+		},
+		S8_MRG4 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S8_MRG3",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S8_E4",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 940, 4900 } },
+		},
+		S8_MRG5 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S8_MRG4",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S8_E5",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1050, 4900 } },
+		},
+		S8_MRG6 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S8_MRG5",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S8_E6",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1160, 4900 } },
+		},
+		S8_MRG7 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "S8_MRG6",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "S8_E7",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 1270, 4900 } },
 		},
 		S8_DRIFT = Transform {
 			Inputs = {
@@ -4568,8 +4568,8 @@
 			SplineColor = { Red = 0, Green = 160, Blue = 255 },
 			NameSet = true,
 			KeyFrames = {
-				[630] = { 0.494, RH = { 649.58, 0.508 } },
-				[719] = { 0.508, LH = { 662.04, 0.508 } }
+				[630] = { 0.493, RH = { 649.58, 0.507 } },
+				[719] = { 0.507, LH = { 662.04, 0.507 } }
 			},
 		},
 		S8_DRIFTCenter = XYPath {
@@ -4587,14 +4587,14 @@
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.043, },
-				TopLeftGreen = Input { Value = 0.043, },
-				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftRed = Input { Value = 0.043137, },
+				TopLeftGreen = Input { Value = 0.043137, },
+				TopLeftBlue = Input { Value = 0.047059, },
 				TopLeftAlpha = Input { Value = 1, },
 				GlobalIn = Input { Value = 0, },
 				GlobalOut = Input { Value = 719, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5700 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 5800 } },
 		},
 		MRG_S1 = Merge {
 			Inputs = {
@@ -4612,7 +4612,7 @@
 				Source = "Value",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 150, 5700 } },
+			ViewInfo = OperatorInfo { Pos = { 150, 5800 } },
 		},
 		MRG_S1Blend = BezierSpline {
 			SplineColor = { Red = 120, Green = 120, Blue = 120 },
@@ -4639,7 +4639,7 @@
 				Source = "Value",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 260, 5700 } },
+			ViewInfo = OperatorInfo { Pos = { 260, 5800 } },
 		},
 		MRG_S2Blend = BezierSpline {
 			SplineColor = { Red = 120, Green = 120, Blue = 120 },
@@ -4667,7 +4667,7 @@
 				Source = "Value",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 370, 5700 } },
+			ViewInfo = OperatorInfo { Pos = { 370, 5800 } },
 		},
 		MRG_S3Blend = BezierSpline {
 			SplineColor = { Red = 120, Green = 120, Blue = 120 },
@@ -4695,7 +4695,7 @@
 				Source = "Value",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 480, 5700 } },
+			ViewInfo = OperatorInfo { Pos = { 480, 5800 } },
 		},
 		MRG_S4Blend = BezierSpline {
 			SplineColor = { Red = 120, Green = 120, Blue = 120 },
@@ -4723,7 +4723,7 @@
 				Source = "Value",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 590, 5700 } },
+			ViewInfo = OperatorInfo { Pos = { 590, 5800 } },
 		},
 		MRG_S5Blend = BezierSpline {
 			SplineColor = { Red = 120, Green = 120, Blue = 120 },
@@ -4751,7 +4751,7 @@
 				Source = "Value",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 700, 5700 } },
+			ViewInfo = OperatorInfo { Pos = { 700, 5800 } },
 		},
 		MRG_S6Blend = BezierSpline {
 			SplineColor = { Red = 120, Green = 120, Blue = 120 },
@@ -4779,7 +4779,7 @@
 				Source = "Value",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 810, 5700 } },
+			ViewInfo = OperatorInfo { Pos = { 810, 5800 } },
 		},
 		MRG_S7Blend = BezierSpline {
 			SplineColor = { Red = 120, Green = 120, Blue = 120 },
@@ -4807,7 +4807,7 @@
 				Source = "Value",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 920, 5700 } },
+			ViewInfo = OperatorInfo { Pos = { 920, 5800 } },
 		},
 		MRG_S8Blend = BezierSpline {
 			SplineColor = { Red = 120, Green = 120, Blue = 120 },
@@ -4838,7 +4838,7 @@
 				Invert = Input { Value = 0, },
 				MaskClipMode = Input { Value = FuID { "None" }, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 0, 5900 } },
+			ViewInfo = OperatorInfo { Pos = { 0, 6000 } },
 		},
 		WIPE_MHeight = BezierSpline {
 			SplineColor = { Red = 255, Green = 0, Blue = 0 },
@@ -4967,8 +4967,8 @@
 				Width = Input { Value = 1080, },
 				Height = Input { Value = 1920, },
 				UseFrameFormatSettings = Input { Value = 0, },
-				TopLeftRed = Input { Value = 0.071, },
-				TopLeftGreen = Input { Value = 0.302, },
+				TopLeftRed = Input { Value = 0.070588, },
+				TopLeftGreen = Input { Value = 0.301961, },
 				TopLeftBlue = Input { Value = 1, },
 				TopLeftAlpha = Input { Value = 1, },
 				GlobalIn = Input { Value = 0, },
@@ -4978,7 +4978,7 @@
 				Source = "Mask",
 			},
 			},
-			ViewInfo = OperatorInfo { Pos = { 110, 5900 } },
+			ViewInfo = OperatorInfo { Pos = { 110, 6000 } },
 		},
 		MRG_WIPE = Merge {
 			Inputs = {
@@ -4992,7 +4992,7 @@
 			},
 				PerformDepthMerge = Input { Value = 0, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 1050, 5700 } },
+			ViewInfo = OperatorInfo { Pos = { 1030, 5800 } },
 		},
 		FINAL_OUT = Transform {
 			Inputs = {
@@ -5004,7 +5004,7 @@
 				Size = Input { Value = 1, },
 				Angle = Input { Value = 0, },
 			},
-			ViewInfo = OperatorInfo { Pos = { 1180, 5700 } },
+			ViewInfo = OperatorInfo { Pos = { 1160, 5800 } },
 		},
 	},
 	ActiveTool = "FINAL_OUT",

@@ -1,198 +1,159 @@
-# DaVinci Resolve 21.1 Free — Fusion bridge + generated motion-design promo
+# Fusion Motion Graphics MCP — DaVinci Resolve (incl. **Free**)
 
-Two deliverables:
+Design motion graphics in DaVinci Resolve by asking Claude. Works on Resolve
+21.1 **Free**, which blocks external scripting.
 
-1. **`promo/`** — a generated 1080×1920 / 30 fps / 24 s Fusion node graph with five
-   replaceable screenshot placeholders. Needs **no bridge, no MCP, no Python inside
-   Resolve**. This is the path to the finished video.
-2. **`bridge/`** — the upstream file-RPC bridge rewritten so it runs under Resolve
-   21.1 Free's Lua sandbox (no `io`, no `os.execute`, no `os.remove`). For live
-   iteration once the video exists.
+```
+claude> make me a 24 second vertical portfolio promo and put it on my clipboard
+```
+
+Claude generates a real Fusion node graph — text, shapes, masks, keyframes,
+easing, transitions, replaceable image slots — validates it, and puts it on your
+clipboard. You press **Ctrl+V** in the Fusion node editor.
 
 ---
 
-## 1. The blocker, precisely
-
-Resolve 21.1 Free's Lua sandbox removes `io` and most of `os`. Upstream's
-`bridge/resolve_bridge.lua` touches those in exactly **seven** places — that is the
-whole problem, and every one has a native replacement:
-
-| Upstream | Replacement in `resolve_bridge_free.lua` |
-|---|---|
-| `os.getenv("HOME")` | `fusion:MapPath("Temp:/")` |
-| `os.execute('mkdir -p')` ×2 | `bmd.createdir()` |
-| `io.open(p,"r")` | **`dofile(p)`** — requests *are* Lua chunks |
-| `io.open(p,"w")` | `bmd.writefile()`, with an `io` fallback |
-| `os.time()` | monotonic tick counter |
-| `os.remove()` ×2 | **removed** — a rising `seq` field supersedes deletion |
-
-The `dofile` move is the key one: `dofile` is provably present, because it is how you
-loaded the bridge in the first place. So the inbound direction was never actually
-blocked — only the transport *assumed* `io`.
-
-**Sockets are not needed and were not used.** `require("socket")` may well be absent;
-`probe/fusion_api_probe.lua` reports the answer for your build either way. A file
-channel through `Temp:/` is simpler, has no port/firewall surface, and survives a
-Resolve restart.
-
-## 1b. Get these files onto the Windows machine
-
-They live on the `claude/keen-fermi-mhx6jp` branch of your **Brandres** repo — not in
-the `davinci-resolve-mcp` clone. Put them somewhere with no spaces in the path:
+## Setup
 
 ```cmd
 cd C:\
 git clone -b claude/keen-fermi-mhx6jp https://github.com/steliosmitadis-sys/Brandres.git brandres-resolve
+pip install fastmcp
+python C:\brandres-resolve\resolve\install.py
 ```
 
-That gives you `C:\brandres-resolve\resolve\...`. To pick up later changes:
+The installer creates `C:\promo`, generates placeholder images and a first
+promo, copies the helper scripts into Resolve's Scripts folder, retires the old
+broken `MCP_Bridge.lua`, and prints the last command — a `claude mcp add …` line
+with your paths already filled in. Paste that, restart Claude Code, done.
 
-```cmd
-cd C:\brandres-resolve && git pull
-```
+**Then in Resolve:** Fusion page → click the node editor → **Ctrl+V** →
+connect `FINAL_OUT` to `MediaOut1` → set the render range to `0-719`.
 
-The old `MCP_Bridge.lua` that `install_bridge.py` copied into
-`...\Support\Fusion\Scripts\Edit\` is the **upstream** bridge and still fails at
-line 30 on `os.execute`. It is superseded — delete it so it stops appearing in the
-Scripts menu.
+To use your own work, drop five screenshots over
+`C:\promo\assets\WORK_01.png` … `WORK_05.png`. Nothing else to change.
 
-## 2. Fastest route to the video (recommended — zero API risk)
+## What you can ask for
 
-```cmd
-cd resolve\promo
-python make_placeholders.py
-python build_promo.py --assets "C:/promo/assets"
-copy out\assets\*.png C:\promo\assets\
-type out\stelios_promo.comp | clip
-```
+| Ask | Tool |
+|---|---|
+| "portfolio promo, accent colour orange, 4 seconds per slide" | `make_portfolio_promo` |
+| "a title card that says LESS / BUT / BETTER" | `make_title_card` |
+| "a 1080×1350 square-ish piece with two scenes…" | `make_composition` |
+| "put that on my clipboard" | `send_to_clipboard` |
+| "make placeholder images" | `make_placeholders` |
+| "is the graph valid?" | `validate_composition` |
+| "what's my Resolve project?" | `resolve_info` *(needs bridge)* |
+| "paste it into Resolve for me" | `push_to_resolve` *(needs bridge)* |
 
-Then in Resolve: open the **Fusion page** on a clip → click in the node editor →
-**Ctrl+V**. Fusion's own parser reads the clipboard; nothing in the sandbox is involved.
+Everything above the divider works with **no bridge and no Resolve scripting**.
 
-Then:
-- connect **`FINAL_OUT`** → **`MediaOut1`**
-- set the comp render range to **0–719**
-- set the timeline to **1080×1920 @ 30 fps**
+## Why it works on Resolve Free
 
-To swap in real work, either overwrite `C:/promo/assets/WORK_01.png` … `WORK_05.png`,
-or select the `WORK_01`…`WORK_05` Loader nodes and point them at any file.
+Resolve Free blocks external scripting, and its Lua sandbox removes `io` and
+`os.execute`, which is what broke the usual MCP bridges.
 
-`promo/Paste_Promo.lua` does the same thing from **Workspace ▸ Scripts** if you prefer
-a button; it falls back to telling you to use the clipboard if `bmd.readfile` is
-missing on your build.
+This project routes around that. A Fusion composition is plain text in Lua
+syntax, and Fusion's node editor accepts it from the clipboard. So the graph is
+built entirely on the host in Python and delivered by paste — no sandboxed API
+is involved at any point.
 
-**Paste `out/smoke_test.comp` first** (17 nodes, ~10 seconds). It contains one of every
-construct the big graph uses — Text+, Transform, XYPath, BezierSpline, RectangleMask,
-Loader, animated Merge. If it renders, the 354-node graph will too.
+The live bridge is a **bonus**, not a dependency. If it runs you also get
+`resolve_info`, `fusion_comp_info` and `push_to_resolve`. If it doesn't,
+everything else is unaffected.
 
-## 3. The design
+### The bridge, if you want it
 
-Frames are 30 fps, 0–719.
+Upstream's bridge touches `io`/`os` in exactly seven places. Each is replaced:
 
-| Frames | Time | Content |
-|---|---|---|
-| 0–90 | 0–3 s | Hook — "BRANDS / BUILT TO / BE SEEN" |
-| 90–540 | 3–18 s | `WORK_01`…`WORK_05`, 90 frames each |
-| 540–630 | 18–21 s | Value proposition — 01 / 02 / 03 numbered grid |
-| 630–720 | 21–24 s | End card — STELIOS MITADIS / GRAPHIC DESIGNER / LET'S BUILD YOUR BRAND |
+| Upstream | Here |
+|---|---|
+| `os.getenv("HOME")` | `fusion:MapPath("Temp:/")` |
+| `os.execute('mkdir -p')` ×2 | `bmd.createdir()` |
+| `io.open(p,"r")` | **`dofile(p)`** — requests *are* Lua chunks |
+| `io.open(p,"w")` | `bmd.writefile()`, falling back to `io` |
+| `os.time()` | monotonic tick counter |
+| `os.remove()` ×2 | **dropped** — a rising `seq` replaces deletion |
 
-Black `#0B0B0C`, white `#F2F2F4`, one electric-blue accent `#1240FF`. Helvetica Neue
-Bold, left-aligned to a single margin at 8.3 % (≈90 px). Motion is crop-reveals,
-position, scale and layout — no particles, no glow, no dissolves. Scene changes are a
-hard-edged blue block wipe, alternating direction, horizontal for the final cut.
+`dofile` was never blocked — it is how you load a script in the first place. So
+the inbound direction always worked; only the transport assumed `io`. No sockets
+are needed.
 
-**Every motion channel is eased** (expo/quint/quart/back). The only non-eased splines
-are the 8 scene-visibility `Blend` channels, which are intentional hard cuts hidden
-under the wipe. `sim_check.py` enforces this.
-
-### Tuning
-
-Constants live at the top of `build_promo.py`:
-
-- `H_LEFT = 0` — **the one value most likely to need changing.** Text+'s
-  `HorizontalJustificationNew` enum is not documented; if your text lands centred
-  instead of left-aligned, set `H_LEFT = 1` and regenerate.
-- `MEGA / H1 / H2 / BODY / LABEL` — type scale
-- `BLUE` — the accent
-- `--font "Helvetica Neue" --style Bold` — Helvetica Neue often isn't installed on
-  Windows; `--font Inter` or `--font "Arial"` are decent substitutes.
-
-Copy lives in `WORKS` and the `scene_*` functions.
-
-## 4. The bridge (optional, for live iteration)
-
-```cmd
-python probe\fusion_api_probe.lua   :: actually: run this INSIDE Resolve
-```
-
-In Resolve, **Workspace ▸ Console ▸ Lua**:
+Start it in Resolve — **Workspace ▸ Console**, set to **Lua**:
 
 ```lua
-dofile("C:/brandres-resolve/resolve/probe/fusion_api_probe.lua")   -- what your build exposes
 dofile("C:/brandres-resolve/resolve/bridge/resolve_bridge_free.lua")
 ```
 
-The bridge prints its `dir =` line. Then on the host:
+The console evaluates Lua, so a bare path gives `'=' expected near '/'`. It must
+be wrapped in `dofile("...")` with forward slashes.
 
-```cmd
-python bridge\selftest.py --dir "<that dir>"
-```
+## The design it generates
 
-which runs your ladder in order and stops at the first failure:
+1080×1920, 30 fps, 720 frames. Black `#0B0B0C`, white `#F2F2F4`, one electric
+blue `#124DFF`. Helvetica Neue Bold, left-aligned to a single 8.3 % margin.
 
-```
-PASS  1. ping / pong           2. sandbox report      3. Resolve project name
-PASS  4. Fusion composition    5. create Text+ 'TEST'  6. animate a parameter
-```
+| Frames | Content |
+|---|---|
+| 0–90 | Hook |
+| 90–540 | `WORK_01`…`WORK_05`, 90 frames each |
+| 540–630 | Value proposition, numbered grid |
+| 630–720 | End card |
 
-`--paste C:/promo/stelios_promo.comp` adds rung 7.
+Motion is crop-reveals, position, scale and layout — no particles, no glow, no
+dissolves. Cuts are a hard-edged blue block wipe, alternating direction. **Every
+motion channel is eased**; the only hard cuts are scene visibility switches
+hidden under the wipe.
 
-## 5. What is verified, and what is not
+If Helvetica Neue isn't installed, pass another font — `Inter` is a good stand-in.
 
-I could not reach your Windows machine from this session, so the split matters.
+**If text comes out centred when it should be left-aligned**, set `H_LEFT = 1`
+in `fusion_mcp/compbuilder.py` and regenerate. Text+'s justification enum is the
+one value I could not verify without your machine.
 
-**Verified here, mechanically:**
-- `out/stelios_promo.comp` parses through a real **Lua 5.4** interpreter with
-  Fusion-style stub constructors — the same way Fusion consumes it. 354 tools, every
-  `SourceOp` resolves, all reachable from `FINAL_OUT`, no orphans (`verify_comp.lua`).
-- All 85 splines simulated across all 720 frames: keyframes strictly ascending, no
-  duplicates, no un-eased motion, **exactly one scene visible on every frame**, blue
-  wipe fully hidden outside its windows and at full coverage at all 7 boundaries
-  (`sim_check.py`).
-- The bridge runs the **full 7-rung ladder** inside `mock_resolve_free.lua`, which
-  loads the real bridge into a sandbox with `io=nil, os.execute=nil, os.remove=nil,
-  os.getenv=nil` — i.e. the transport is proven not to need them.
+## Verification
 
-**Not verifiable without your machine:**
-- Whether `bmd.writefile` / `bmd.createdir` / `fusion:MapPath` exist on Resolve 21.1
-  Free. `probe/fusion_api_probe.lua` answers this; the bridge falls back to `io` and
-  reports `writer = NONE` with a clear error rather than failing silently.
-- Whether `bmd.readfile` parses a `.comp`. If not, use the clipboard route — it
-  bypasses that call entirely.
-- Text+'s justification enum (`H_LEFT`) and exact Text+ `Size` scaling.
-- Whether `ui:Timer` works, which decides non-blocking vs blocking polling. Both are
-  implemented; the bridge picks automatically and says which.
-
-## 6. Files
-
-```
-probe/fusion_api_probe.lua     what your Lua sandbox actually exposes
-bridge/resolve_bridge_free.lua the io/os-free bridge
-bridge/bridge_client_free.py   host client + Lua-literal parser (self-testing)
-bridge/selftest.py             the 7-rung ladder
-bridge/mock_resolve_free.lua   Resolve-Free sandbox simulator for regression tests
-promo/build_promo.py           the node-graph generator
-promo/make_placeholders.py     the five placeholder stills (stdlib only)
-promo/verify_comp.lua          structural validation via real Lua
-promo/sim_check.py             frame-by-frame spline simulation
-promo/Paste_Promo.lua          one-click paste from Workspace > Scripts
-promo/out/stelios_promo.comp   the deliverable (354 nodes)
-promo/out/smoke_test.comp      paste this first
-```
-
-Regression-test everything without Resolve:
+Run without Resolve:
 
 ```bash
-cd promo && python3 build_promo.py && lua5.4 verify_comp.lua out/stelios_promo.comp && python3 sim_check.py
+cd resolve/promo
+python3 build_promo.py && python3 sim_check.py
+lua5.4 verify_comp.lua out/stelios_promo.comp     # if you have lua
 cd ../bridge && python3 bridge_client_free.py
+```
+
+Checked mechanically here:
+
+- the graph parses through a real **Lua 5.4** interpreter with Fusion-style stub
+  constructors; 354 tools, every link resolves, all reachable from `FINAL_OUT`
+- all 85 splines solved across all 720 frames: keys ascending, no duplicates, no
+  un-eased motion, **exactly one scene visible per frame**, transition block
+  hidden outside its windows and fully covering at every cut
+- the validator is checked against four deliberately corrupted graphs and
+  catches all four
+- the MCP server answers a real MCP client: 13 tools, valid output, and clean
+  rejection of malformed specs
+- the bridge passes a 7-rung ladder inside a sandbox with `io`, `os.execute`,
+  `os.remove` and `os.getenv` all nil
+
+Not verifiable without your machine: whether `bmd.writefile`/`createdir`/
+`MapPath` exist on your build (the probe reports it, and the clipboard route
+does not care), the Text+ justification enum, and exact Text+ size scaling.
+
+## Files
+
+```
+install.py                     one-command setup
+fusion_mcp/server.py           the MCP server (13 tools)
+fusion_mcp/compbuilder.py      spec -> Fusion node graph
+fusion_mcp/templates.py        portfolio_promo, title_card
+fusion_mcp/validate.py         structural + frame-by-frame checks
+bridge/resolve_bridge_free.lua the io/os-free bridge
+bridge/bridge_client_free.py   host client + Lua parser
+bridge/selftest.py             the 7-rung ladder
+bridge/mock_resolve_free.lua   sandbox simulator for tests
+probe/fusion_api_probe.lua     what your Lua sandbox exposes
+promo/build_promo.py           CLI equivalent of the MCP generate tools
+promo/verify_comp.lua          validation via real Lua
+promo/sim_check.py             spline simulation
 ```
