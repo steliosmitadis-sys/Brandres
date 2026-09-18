@@ -25,3 +25,4 @@ dist-ssr
 
 # Πακέτα build για ανέβασμα σε hosting
 hyperlaunch-site.zip
+__pycache__/

@@ -1,0 +1,250 @@
+{
+	Tools = ordered() {
+		SMOKE_BG = Background {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				TopLeftRed = Input { Value = 0.043, },
+				TopLeftGreen = Input { Value = 0.043, },
+				TopLeftBlue = Input { Value = 0.047, },
+				TopLeftAlpha = Input { Value = 1, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+		},
+		SMOKE_TXT = TextPlus {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				StyledText = Input { Value = "TEST", },
+				Font = Input { Value = "Helvetica Neue", },
+				Style = Input { Value = "Bold", },
+				Size = Input { Value = 0.095, },
+				Tracking = Input { Value = 1, },
+				LineSpacing = Input { Value = 1, },
+				Red1 = Input { Value = 0.949, },
+				Green1 = Input { Value = 0.949, },
+				Blue1 = Input { Value = 0.957, },
+				Alpha1 = Input { Value = 1, },
+				HorizontalJustificationNew = Input { Value = 0, },
+				VerticalJustificationNew = Input { Value = 3, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 120 } },
+		},
+		SMOKE_MASK = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input { Value = 1.4, },
+				Height = Input { Value = 0.16625, },
+				Center = Input { Value = { 0.5, 0.5 }, },
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 200 } },
+		},
+		SMOKE_XF = Transform {
+			Inputs = {
+				Input = Input {
+				SourceOp = "SMOKE_TXT",
+				Source = "Output",
+			},
+				Center = Input {
+				SourceOp = "SMOKE_XFCenter",
+				Source = "Value",
+			},
+				Size = Input {
+				SourceOp = "SMOKE_XFSize",
+				Source = "Value",
+			},
+				Angle = Input { Value = 0, },
+				EffectMask = Input {
+				SourceOp = "SMOKE_MASK",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 120 } },
+		},
+		SMOKE_XFCenterY = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.4, RH = { 1.92, 0.5 } },
+				[12] = { 0.5, LH = { 3.6, 0.5 } }
+			},
+		},
+		SMOKE_XFCenter = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input { Value = 0.083, },
+				Y = Input {
+				SourceOp = "SMOKE_XFCenterY",
+				Source = "Value",
+			},
+			},
+		},
+		SMOKE_XFSize = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0.85, RH = { 4.76, 1.042 } },
+				[14] = { 1, LH = { 8.96, 1 } }
+			},
+		},
+		SMOKE_M1 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "SMOKE_BG",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "SMOKE_XF",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 220, 0 } },
+		},
+		SMOKE_RULE_M = RectangleMask {
+			Inputs = {
+				MaskWidth = Input { Value = 1080, },
+				MaskHeight = Input { Value = 1920, },
+				Width = Input {
+				SourceOp = "SMOKE_RULE_MWidth",
+				Source = "Value",
+			},
+				Height = Input { Value = 0.0035, },
+				Center = Input {
+				SourceOp = "SMOKE_RULE_MCenter",
+				Source = "Value",
+			},
+				SoftEdge = Input { Value = 0, },
+				CornerRadius = Input { Value = 0, },
+				Invert = Input { Value = 0, },
+				MaskClipMode = Input { Value = FuID { "None" }, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 320 } },
+		},
+		SMOKE_RULE_MWidth = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 0 },
+			NameSet = true,
+			KeyFrames = {
+				[6] = { 0, RH = { 7.76, 0.4 } },
+				[17] = { 0.4, LH = { 9.3, 0.4 } }
+			},
+		},
+		SMOKE_RULE_MCenterX = BezierSpline {
+			SplineColor = { Red = 0, Green = 160, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[6] = { 0.083, RH = { 7.76, 0.283 } },
+				[17] = { 0.283, LH = { 9.3, 0.283 } }
+			},
+		},
+		SMOKE_RULE_MCenter = XYPath {
+			DrawMode = "ModifyOnly",
+			Inputs = {
+				X = Input {
+				SourceOp = "SMOKE_RULE_MCenterX",
+				Source = "Value",
+			},
+				Y = Input { Value = 0.44, },
+			},
+		},
+		SMOKE_RULE = Background {
+			Inputs = {
+				Width = Input { Value = 1080, },
+				Height = Input { Value = 1920, },
+				UseFrameFormatSettings = Input { Value = 0, },
+				TopLeftRed = Input { Value = 0.071, },
+				TopLeftGreen = Input { Value = 0.302, },
+				TopLeftBlue = Input { Value = 1, },
+				TopLeftAlpha = Input { Value = 1, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				EffectMask = Input {
+				SourceOp = "SMOKE_RULE_M",
+				Source = "Mask",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 110, 320 } },
+		},
+		SMOKE_M2 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "SMOKE_M1",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "SMOKE_RULE",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 330, 0 } },
+		},
+		WORK_01 = Loader {
+			Clips = {
+				Clip {
+					ID = "Clip1",
+					Filename = "C:/promo/assets/WORK_01.png",
+					FormatID = "PNGFormat",
+					StartFrame = -1,
+					LengthSetManually = true,
+					TrimIn = 0,
+					TrimOut = 0,
+					ExtendFirst = 0,
+					ExtendLast = 0,
+					Loop = 1,
+					AspectMode = 0,
+					Depth = 0,
+					GlobalStart = 0,
+					GlobalEnd = 719
+				}
+			},
+			Inputs = {
+				Loop = Input { Value = 1, },
+				GlobalIn = Input { Value = 0, },
+				GlobalOut = Input { Value = 719, },
+				HoldLastFrame = Input { Value = 720, },
+				Depth = Input { Value = 0, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 0, 420 } },
+		},
+		SMOKE_M3 = Merge {
+			Inputs = {
+				Background = Input {
+				SourceOp = "SMOKE_M2",
+				Source = "Output",
+			},
+				Foreground = Input {
+				SourceOp = "WORK_01",
+				Source = "Output",
+			},
+				PerformDepthMerge = Input { Value = 0, },
+				Center = Input { Value = { 0.5, 0.72 }, },
+				Blend = Input {
+				SourceOp = "SMOKE_M3Blend",
+				Source = "Value",
+			},
+			},
+			ViewInfo = OperatorInfo { Pos = { 440, 0 } },
+		},
+		SMOKE_M3Blend = BezierSpline {
+			SplineColor = { Red = 120, Green = 120, Blue = 120 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 0.33, 0.33 } },
+				[1] = { 1, LH = { 0.67, 0.67 } }
+			},
+		},
+	},
+	ActiveTool = "SMOKE_M3",
+}
