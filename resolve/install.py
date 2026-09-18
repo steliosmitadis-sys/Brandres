@@ -123,6 +123,7 @@ def main():
         else:
             copied = []
             for sub, src in (("Comp", os.path.join(HERE, "promo", "Paste_Promo.lua")),
+                             ("Comp", os.path.join(HERE, "promo", "Fix_Output.lua")),
                              ("Utility", os.path.join(HERE, "probe", "fusion_api_probe.lua")),
                              ("Utility", os.path.join(HERE, "bridge", "resolve_bridge_free.lua"))):
                 dst_dir = os.path.join(base, sub)
