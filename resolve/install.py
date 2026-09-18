@@ -51,6 +51,9 @@ def main():
     ap.add_argument("--workdir", default=None,
                     help="where comps and assets go (default C:/promo)")
     ap.add_argument("--font", default="Helvetica Neue")
+    ap.add_argument("--fps", type=int, default=30,
+                    help="match your timeline: 30 or 60 (TikTok is often 60)")
+    ap.add_argument("--seconds-per-scene", type=float, default=3.0)
     ap.add_argument("--skip-resolve", action="store_true",
                     help="do not copy scripts into Resolve's Scripts folder")
     a = ap.parse_args()
@@ -85,13 +88,15 @@ def main():
     try:
         import compbuilder as cb, templates as tpl, validate as V
         text, n = cb.render(tpl.portfolio_promo(
-            assets=os.path.join(work, "assets"), font=a.font))
+            assets=os.path.join(work, "assets"), font=a.font, fps=a.fps,
+            scene_frames=int(round(a.seconds_per_scene * a.fps))))
         rep = V.validate(text)
         comp_path = os.path.join(work, "promo.comp").replace("\\", "/")
         open(comp_path, "w", encoding="utf-8").write(text)
         step(rep["ok"], "generate + validate promo",
-             "%d nodes, %d frames, %s" % (n, rep["stats"]["frames"],
-                                          "clean" if rep["ok"] else rep["errors"][:1]))
+             "%d nodes, %d frames = %.1fs @ %dfps, %s"
+             % (n, rep["stats"]["frames"], rep["stats"]["frames"] / float(a.fps),
+                a.fps, "clean" if rep["ok"] else rep["errors"][:1]))
     except Exception as e:
         step(False, "generate + validate promo", str(e))
 
@@ -161,7 +166,8 @@ def main():
     print("2. Then just ask Claude, for example:\n")
     print('   "make me a 24 second vertical portfolio promo and put it on my clipboard"\n')
     print("3. In Resolve: open the Fusion page on a clip, click the node editor,")
-    print("   press Ctrl+V, connect FINAL_OUT to MediaOut1, set the range to 0-719.\n")
+    last = (rep["stats"]["frames"] - 1) if comp_path else 719
+    print("   press Ctrl+V, connect FINAL_OUT to MediaOut1, set the range to 0-%d.\n" % last)
     if comp_path:
         print("   A promo is already waiting at: %s" % comp_path)
         print("   Replace %s/assets/WORK_01..05.png with your screenshots.\n" % work)

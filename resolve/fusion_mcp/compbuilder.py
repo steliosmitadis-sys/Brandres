@@ -270,7 +270,9 @@ def el_text(c, cfg, base, el, pos):
     align = H_CENTER if el.get("align", cfg["align"]) == "center" else H_LEFT
     x = el.get("x", 0.5 if align == H_CENTER else cfg["margin"])
     y = float(el["y"])
-    at, dur = int(el.get("at", 0)), int(el.get("dur", 10))
+    ts = cfg["time_scale"]
+    at = int(el.get("at", 0))
+    dur = max(2, int(round(float(el.get("dur", 10)) * ts)))
     ease = el.get("ease", "expoOut")
 
     t = c.text(base + "_T", str(el["text"]), size, color, pos,
@@ -287,7 +289,9 @@ def el_rule(c, cfg, base, el, pos):
     color = hex_rgb(cfg["palette"].get(el.get("color", "accent"), el.get("color", "accent")))
     x = float(el.get("x", cfg["margin"]))
     y, w = float(el["y"]), float(el.get("width", 0.3))
-    at, dur = int(el.get("at", 0)), int(el.get("dur", 11))
+    ts = cfg["time_scale"]
+    at = int(el.get("at", 0))
+    dur = max(2, int(round(float(el.get("dur", 11)) * ts)))
     thick = float(el.get("thickness", 0.0035))
     ease = el.get("ease", "expoOut")
     r = c.rect(base + "_M", w, thick, (x + w / 2.0, y), pos)
@@ -301,7 +305,9 @@ def el_image(c, cfg, base, el, pos, scene_end):
     slot = el.get("slot") or [cfg["margin"], 0.3, 1 - 2 * cfg["margin"], 0.4]
     sx, sy, sw, sh = (float(v) for v in slot)
     scy = sy + sh / 2.0
-    at, dur = int(el.get("at", 0)), int(el.get("dur", 12))
+    ts = cfg["time_scale"]
+    at = int(el.get("at", 0))
+    dur = max(2, int(round(float(el.get("dur", 12)) * ts)))
     anchor = el.get("anchor", "bottom")
     ease = el.get("ease", "expoOut")
 
@@ -329,7 +335,8 @@ def build_wipe(c, cfg, bounds, row):
     """One hard-edge block covering each cut, alternating direction."""
     if not bounds or cfg["transition"].get("style") == "none":
         return None
-    half = max(2, int(cfg["transition"].get("frames", 12)) // 2)
+    half = max(2, int(round(int(cfg["transition"].get("frames", 12))
+                            * cfg["time_scale"])) // 2)
     col = cfg["transition"].get("color", "accent")
     color = hex_rgb(cfg["palette"].get(col, col))
     hk = [(0, 0.0, "STEP")]
@@ -371,6 +378,10 @@ def normalize(spec):
             raise SpecError("scene %d needs start and end (frames)" % n)
         if int(sc["end"]) <= int(sc["start"]):
             raise SpecError("scene %d: end must be after start" % n)
+    if not cfg.get("time_scale"):
+        # Element timings are authored in 30fps units. At 60fps a 10-frame move
+        # must become 20 frames to look the same, so scale everything by fps/30.
+        cfg["time_scale"] = float(cfg["fps"]) / 30.0
     cfg["scenes"].sort(key=lambda s: int(s["start"]))
     last = cfg["scenes"][-1]
     cfg["duration"] = max(int(cfg["duration"]), int(last["end"]))
@@ -395,7 +406,7 @@ def build(spec):
                 raise SpecError("scene %d element %d: unknown type %r "
                                 "(want one of %s)" % (i, j, kind, sorted(ELEMENTS)))
             el = dict(el)
-            el["at"] = start + int(el.get("at", 0))        # scene-relative timing
+            el["at"] = start + int(round(int(el.get("at", 0)) * cfg["time_scale"]))
             base = "S%d_E%d" % (i + 1, j + 1)
             pos = (0, row + j * 120)
             layers.append(fn(c, cfg, base, el, pos, end) if kind == "image"

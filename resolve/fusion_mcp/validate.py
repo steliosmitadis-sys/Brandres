@@ -167,7 +167,7 @@ def validate(text, duration=None):
             if not any(abs(centre - c) <= 3 for c in cuts):
                 errors.append("transition block visible at frames %d-%d, "
                               "which is not a scene cut" % (r[0], r[-1]))
-            elif len(r) > 30:
+            elif len(r) > 60:
                 errors.append("transition block lingers %d frames at %d-%d"
                               % (len(r), r[0], r[-1]))
         if len(runs) != len(cuts):
